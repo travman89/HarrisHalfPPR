@@ -57,11 +57,11 @@ const Home = () => {
 
   return (
     <Container>
-      <Heading>Harris Footbal Half PPR unofficial ranks</Heading>
+      <Heading>Harris Footbal half PPR unofficial ranks</Heading>
       <Disclaimer>
-        These are <b>NOT</b> offical ranks from Crhistopher Harris <br /> These
-        ranks are an average of the standard and full ppr ranks found on
-        harrisfootball.com <br /> This site is not offiliated or endorsed by
+        These are <b>NOT</b> offical ranks from Crhistopher Harris. <br /> These
+        ranks are an average of the standard and full PPR ranks found on
+        harrisfootball.com. <br /> This site is not affiliated or endorsed by
         Christopher Harris in any way.
       </Disclaimer>
       <Updated>(Updated 8/19 - 2:00pm PST)</Updated>
