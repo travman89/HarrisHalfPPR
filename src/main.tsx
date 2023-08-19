@@ -5,6 +5,6 @@ import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <App style={{ backgorundColor: "#f9ca10" }} />
+    <App />
   </React.StrictMode>
 );
