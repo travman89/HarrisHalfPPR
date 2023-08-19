@@ -13,6 +13,7 @@ import {
   Position,
   PositionRow,
   PositionButton,
+  Updated,
 } from "./components.js";
 
 const Home = () => {
@@ -63,6 +64,7 @@ const Home = () => {
         harrisfootball.com <br /> This site is not offiliated or endorsed by
         Christopher Harris in any way.
       </Disclaimer>
+      <Updated>(Updated 8/19 - 2:00pm PST)</Updated>
       <PositionRow>
         <PositionButton
           style={{ border: getUnderline("all") ? "1px solid" : "none" }}
