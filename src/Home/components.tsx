@@ -10,6 +10,9 @@ const Container = styled.div`
   @media (max-width: 440px) {
     width: 100%;
   }
+  div {
+    color: #505050;
+  }
 `;
 
 const Heading = styled.div`
@@ -97,6 +100,7 @@ const PositionButton = styled.button`
   outline: inherit;
   width: 30px;
   text-align: center;
+  color: #505050;
 `;
 
 export {
