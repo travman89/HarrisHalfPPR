@@ -20,7 +20,7 @@ const Heading = styled.div`
   font-size: 32px;
   text-align: center;
   padding: 20px 0;
-  color: rgba(35, 52, 88, 0.84);
+  color: rgba(35, 52, 88, 0.84) !important;
   @media (max-width: 440px) {
     font-size: 24px;
   }

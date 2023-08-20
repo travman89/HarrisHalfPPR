@@ -64,7 +64,7 @@ const Home = () => {
         harrisfootball.com. <br /> This site is not affiliated or endorsed by
         Christopher Harris.
       </Disclaimer>
-      <Updated>(Updated 8/19 - 2:00pm PST)</Updated>
+      <Updated>(Updated 8/20 - 4:30pm PST)</Updated>
       <PositionRow>
         <PositionButton
           style={{ border: getUnderline("all") ? "1px solid" : "none" }}
