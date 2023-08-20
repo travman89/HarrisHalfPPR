@@ -5,7 +5,9 @@ function App() {
     <div style={{ backgroundColor: "#f9ca10" }}>
       <BrowserRouter basename="/">
         <Routes>
-          <Route path={"*"} Component={Home}></Route>
+          <Route path={"/"} element={<Home />} />
+          <Route path={"/:rank"} element={<Home />} />
+          <Route path={"*"} element={<Home />} />
         </Routes>
       </BrowserRouter>
     </div>
