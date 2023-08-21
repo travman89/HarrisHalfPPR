@@ -59,10 +59,16 @@ const Home = () => {
     <Container>
       <Heading>Harris Footbal half PPR unofficial ranks</Heading>
       <Disclaimer>
-        These are <b>NOT</b> offical ranks from Christopher Harris. <br /> These
-        ranks are an average of the standard and full PPR ranks found on
-        harrisfootball.com. <br /> This site is not affiliated or endorsed by
-        Christopher Harris.
+        These are <b>NOT</b> offical ranks from Christopher Harris. <br />{" "}
+        {`These
+        ranks are an average of the standard and full PPR ranks found on `}
+        <a
+          href="https://www.harrisfootball.com/top-160-ranks-draft"
+          target="_blank"
+        >
+          harrisfootball.com
+        </a>
+        . <br /> This site is not affiliated with Christopher Harris.
       </Disclaimer>
       <Updated>(Updated 8/20 - 4:30pm PST)</Updated>
       <PositionRow>
