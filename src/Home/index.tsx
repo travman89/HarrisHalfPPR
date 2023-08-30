@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { halfPPR } from "../data/halfppr.js";
+import halfPPR from "../data/halfppr.json";
 import { useLocation, useNavigate } from "react-router-dom";
 import {
   Container,
