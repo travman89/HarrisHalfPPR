@@ -70,7 +70,7 @@ const Home = () => {
         </a>
         . <br /> This site is not affiliated with Christopher Harris.
       </Disclaimer>
-      <Updated>(Updated 8/24 - 8:10pm PST)</Updated>
+      <Updated>(Updated 8/30 - 10:50am PST)</Updated>
       <PositionRow>
         <PositionButton
           style={{ border: getUnderline("all") ? "1px solid" : "none" }}
@@ -129,7 +129,7 @@ const Home = () => {
           Std
         </StandardRank>
         <PPRRank style={{ fontWeight: 600, textDecoration: "underline" }}>
-          Ppr
+          PPR
         </PPRRank>
       </RankRow>
       {sortedRanks.map((player, i) => (
