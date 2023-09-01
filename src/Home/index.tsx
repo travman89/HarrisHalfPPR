@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import halfPPR from "../data/halfppr.json";
+import halfPPR from "../data/all.json";
 import { useLocation, useNavigate } from "react-router-dom";
 import {
   Container,
@@ -70,7 +70,7 @@ const Home = () => {
         </a>
         . <br /> This site is not affiliated with Christopher Harris.
       </Disclaimer>
-      <Updated>(Updated 8/30 - 10:50am PST)</Updated>
+      <Updated>(Updated 8/31 - 6:00 PST)</Updated>
       <PositionRow>
         <PositionButton
           style={{ border: getUnderline("all") ? "1px solid" : "none" }}

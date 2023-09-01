@@ -570,7 +570,7 @@
     "name": "Rachaad White",
     "position": "RB",
     "rank": 82,
-    "standardRank": 90,
+    "standardRank": 91,
     "pprRank": 77
   },
   {
@@ -588,24 +588,24 @@
     "pprRank": 89
   },
   {
-    "name": "Jakobi Meyers",
-    "position": "WR",
-    "rank": 85,
-    "standardRank": 88,
-    "pprRank": 82
-  },
-  {
     "name": "Kyle Pitts",
     "position": "TE",
-    "rank": 86,
+    "rank": 85,
     "standardRank": 86,
     "pprRank": 85
+  },
+  {
+    "name": "Jakobi Meyers",
+    "position": "WR",
+    "rank": 86,
+    "standardRank": 89,
+    "pprRank": 82
   },
   {
     "name": "Michael Thomas",
     "position": "WR",
     "rank": 87,
-    "standardRank": 87,
+    "standardRank": 88,
     "pprRank": 86
   },
   {
@@ -620,161 +620,161 @@
     "position": "RB",
     "rank": 89,
     "standardRank": 82,
-    "pprRank": 99
+    "pprRank": 97
+  },
+  {
+    "name": "Raheem Mostert",
+    "position": "RB",
+    "rank": 90,
+    "standardRank": 87,
+    "pprRank": 96
   },
   {
     "name": "Antonio Gibson",
     "position": "RB",
-    "rank": 90,
-    "standardRank": 92,
+    "rank": 91,
+    "standardRank": 93,
     "pprRank": 90
   },
   {
     "name": "Zay Flowers",
     "position": "WR",
-    "rank": 91,
-    "standardRank": 94,
+    "rank": 92,
+    "standardRank": 95,
     "pprRank": 88
   },
   {
     "name": "Jordan Addison",
     "position": "WR",
-    "rank": 92,
-    "standardRank": 95,
+    "rank": 93,
+    "standardRank": 96,
     "pprRank": 87
   },
   {
     "name": "Jamaal Williams",
     "position": "RB",
-    "rank": 93,
-    "standardRank": 89,
+    "rank": 94,
+    "standardRank": 90,
     "pprRank": 94
   },
   {
     "name": "A.J. Dillon",
     "position": "RB",
-    "rank": 94,
-    "standardRank": 91,
+    "rank": 95,
+    "standardRank": 92,
     "pprRank": 93
   },
   {
     "name": "Elijah Moore",
     "position": "WR",
-    "rank": 95,
-    "standardRank": 96,
+    "rank": 96,
+    "standardRank": 97,
     "pprRank": 91
   },
   {
     "name": "Gabe Davis",
     "position": "WR",
-    "rank": 96,
-    "standardRank": 93,
-    "pprRank": 100
+    "rank": 97,
+    "standardRank": 94,
+    "pprRank": 98
   },
   {
-    "name": "Raheem Mostert",
+    "name": "Zach Charbonnet",
     "position": "RB",
-    "rank": 97,
-    "standardRank": 100,
+    "rank": 98,
+    "standardRank": 101,
     "pprRank": 95
   },
   {
     "name": "Brandin Cooks",
     "position": "WR",
-    "rank": 98,
-    "standardRank": 98,
-    "pprRank": 101
-  },
-  {
-    "name": "Zach Charbonnet",
-    "position": "RB",
     "rank": 99,
-    "standardRank": 102,
-    "pprRank": 98
-  },
-  {
-    "name": "Devin Singletary",
-    "position": "RB",
-    "rank": 100,
-    "standardRank": 105,
-    "pprRank": 96
+    "standardRank": 99,
+    "pprRank": 99
   },
   {
     "name": "Treylon Burks",
     "position": "WR",
-    "rank": 101,
-    "standardRank": 97,
-    "pprRank": 105
+    "rank": 100,
+    "standardRank": 98,
+    "pprRank": 103
   },
   {
     "name": "Odell Beckham",
     "position": "WR",
-    "rank": 102,
-    "standardRank": 106,
-    "pprRank": 102
-  },
-  {
-    "name": "Jeff Wilson",
-    "position": "RB",
-    "rank": 103,
-    "standardRank": 99,
-    "pprRank": 110
-  },
-  {
-    "name": "Evan Hull",
-    "position": "RB",
-    "rank": 104,
-    "standardRank": 103,
-    "pprRank": 106
+    "rank": 101,
+    "standardRank": 105,
+    "pprRank": 100
   },
   {
     "name": "Jaxon Smith-Njigba",
     "position": "WR",
-    "rank": 105,
-    "standardRank": 107,
-    "pprRank": 103
+    "rank": 102,
+    "standardRank": 106,
+    "pprRank": 101
+  },
+  {
+    "name": "Evan Hull",
+    "position": "RB",
+    "rank": 103,
+    "standardRank": 102,
+    "pprRank": 106
+  },
+  {
+    "name": "Devin Singletary",
+    "position": "RB",
+    "rank": 104,
+    "standardRank": 104,
+    "pprRank": 104
   },
   {
     "name": "Jaylen Warren",
     "position": "RB",
-    "rank": 106,
-    "standardRank": 101,
-    "pprRank": 111
+    "rank": 105,
+    "standardRank": 100,
+    "pprRank": 110
   },
   {
     "name": "Skyy Moore",
     "position": "WR",
-    "rank": 107,
-    "standardRank": 110,
-    "pprRank": 104
+    "rank": 106,
+    "standardRank": 109,
+    "pprRank": 102
   },
   {
     "name": "Jameson Williams",
     "position": "WR",
-    "rank": 108,
-    "standardRank": 109,
+    "rank": 107,
+    "standardRank": 108,
     "pprRank": 107
   },
   {
     "name": "Samaje Perine",
     "position": "RB",
-    "rank": 109,
-    "standardRank": 108,
+    "rank": 108,
+    "standardRank": 107,
     "pprRank": 112
-  },
-  {
-    "name": "Jerick McKinnon",
-    "position": "RB",
-    "rank": 110,
-    "standardRank": 123,
-    "pprRank": 97
   },
   {
     "name": "Damien Harris",
     "position": "RB",
-    "rank": 111,
-    "standardRank": 104,
+    "rank": 109,
+    "standardRank": 103,
     "pprRank": 117
+  },
+  {
+    "name": "Devon Achane",
+    "position": "RB",
+    "rank": 110,
+    "standardRank": 113,
+    "pprRank": 111
+  },
+  {
+    "name": "Jerick McKinnon",
+    "position": "RB",
+    "rank": 111,
+    "standardRank": 123,
+    "pprRank": 105
   },
   {
     "name": "Nico Collins",
@@ -784,18 +784,18 @@
     "pprRank": 109
   },
   {
-    "name": "JuJu Smith-Schuster",
-    "position": "WR",
-    "rank": 113,
-    "standardRank": 122,
-    "pprRank": 108
-  },
-  {
     "name": "D'Onta Foreman",
     "position": "RB",
-    "rank": 114,
-    "standardRank": 111,
+    "rank": 113,
+    "standardRank": 110,
     "pprRank": 120
+  },
+  {
+    "name": "JuJu Smith-Schuster",
+    "position": "WR",
+    "rank": 114,
+    "standardRank": 122,
+    "pprRank": 108
   },
   {
     "name": "Evan Engram",
@@ -812,18 +812,18 @@
     "pprRank": 116
   },
   {
-    "name": "Aaron Rodgers",
-    "position": "QB",
-    "rank": 117,
-    "standardRank": 114,
-    "pprRank": 125
-  },
-  {
     "name": "Elijah Mitchell",
     "position": "RB",
-    "rank": 118,
-    "standardRank": 112,
+    "rank": 117,
+    "standardRank": 111,
     "pprRank": 128
+  },
+  {
+    "name": "Aaron Rodgers",
+    "position": "QB",
+    "rank": 118,
+    "standardRank": 114,
+    "pprRank": 125
   },
   {
     "name": "Quentin Johnston",
@@ -847,18 +847,18 @@
     "pprRank": 126
   },
   {
-    "name": "Kareem Hunt",
-    "position": "RB",
-    "rank": 122,
-    "standardRank": 124,
-    "pprRank": 118
-  },
-  {
     "name": "Zack Moss",
     "position": "RB",
-    "rank": 123,
-    "standardRank": 113,
+    "rank": 122,
+    "standardRank": 112,
     "pprRank": 130
+  },
+  {
+    "name": "Kareem Hunt",
+    "position": "RB",
+    "rank": 123,
+    "standardRank": 124,
+    "pprRank": 118
   },
   {
     "name": "Deshaun Watson",
@@ -928,7 +928,7 @@
     "position": "RB",
     "rank": 133,
     "standardRank": 126,
-    "pprRank": 139
+    "pprRank": 138
   },
   {
     "name": "Allen Lazard",
@@ -949,7 +949,7 @@
     "position": "RB",
     "rank": 136,
     "standardRank": 131,
-    "pprRank": 140
+    "pprRank": 139
   },
   {
     "name": "David Njoku",
@@ -959,31 +959,31 @@
     "pprRank": 135
   },
   {
-    "name": "Dalton Schultz",
-    "position": "TE",
-    "rank": 138,
-    "standardRank": 141,
-    "pprRank": 136
-  },
-  {
     "name": "Tyjae Spears",
     "position": "RB",
-    "rank": 139,
+    "rank": 138,
     "standardRank": 134,
-    "pprRank": 144
+    "pprRank": 143
+  },
+  {
+    "name": "Dalton Schultz",
+    "position": "TE",
+    "rank": 139,
+    "standardRank": 141,
+    "pprRank": 136
   },
   {
     "name": "Kendre Miller",
     "position": "RB",
     "rank": 140,
     "standardRank": 135,
-    "pprRank": 145
+    "pprRank": 144
   },
   {
     "name": "K.J. Osborn",
     "position": "WR",
     "rank": 141,
-    "standardRank": 147,
+    "standardRank": 148,
     "pprRank": 134
   },
   {
@@ -991,76 +991,76 @@
     "position": "WR",
     "rank": 142,
     "standardRank": 137,
-    "pprRank": 150
+    "pprRank": 149
   },
   {
     "name": "Kirk Cousins",
     "position": "QB",
     "rank": 143,
     "standardRank": 142,
-    "pprRank": 146
+    "pprRank": 145
   },
   {
     "name": "Derek Carr",
     "position": "QB",
     "rank": 144,
     "standardRank": 143,
-    "pprRank": 147
+    "pprRank": 146
   },
   {
     "name": "Marquez Valdes-Scantling",
     "position": "WR",
     "rank": 145,
-    "standardRank": 148,
-    "pprRank": 142
-  },
-  {
-    "name": "Devon Achane",
-    "position": "RB",
-    "rank": 146,
-    "standardRank": 153,
-    "pprRank": 138
+    "standardRank": 149,
+    "pprRank": 141
   },
   {
     "name": "Curtis Samuel",
     "position": "WR",
-    "rank": 147,
-    "standardRank": 151,
-    "pprRank": 143
+    "rank": 146,
+    "standardRank": 152,
+    "pprRank": 142
   },
   {
     "name": "Roschon Johnson",
     "position": "RB",
-    "rank": 148,
+    "rank": 147,
     "standardRank": 145,
-    "pprRank": 151
+    "pprRank": 150
   },
   {
     "name": "Kadarius Toney",
     "position": "WR",
-    "rank": 149,
-    "standardRank": 149,
-    "pprRank": 148
+    "rank": 148,
+    "standardRank": 150,
+    "pprRank": 147
   },
   {
     "name": "Marvin Mims",
     "position": "WR",
-    "rank": 150,
-    "standardRank": 150,
-    "pprRank": 149
+    "rank": 149,
+    "standardRank": 151,
+    "pprRank": 148
   },
   {
     "name": "Zamir White",
     "position": "RB",
-    "rank": 151,
+    "rank": 150,
     "standardRank": 144,
-    "pprRank": 159
+    "pprRank": 158
   },
   {
     "name": "Tank Bigsby",
     "position": "RB",
-    "rank": 152,
+    "rank": 151,
     "standardRank": 146,
+    "pprRank": 159
+  },
+  {
+    "name": "Jeff Wilson",
+    "position": "RB",
+    "rank": 152,
+    "standardRank": 147,
     "pprRank": 160
   },
   {
@@ -1068,13 +1068,13 @@
     "position": "RB",
     "rank": 153,
     "standardRank": 154,
-    "pprRank": 156
+    "pprRank": 155
   },
   {
     "name": "Ty Chandler",
     "position": "RB",
     "rank": 154,
     "standardRank": 155,
-    "pprRank": 158
+    "pprRank": 157
   }
 ]
