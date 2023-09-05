@@ -69,22 +69,22 @@ const Name = styled.div`
 `;
 
 const Position = styled.div`
-  width: 30px;
+  width: 40px;
   text-align: center;
 `;
 const StandardRank = styled.div`
-  width: 30px;
+  width: 40px;
   text-align: center;
 `;
 
 const PPRRank = styled.div`
-  width: 30px;
+  width: 40px;
   text-align: center;
 `;
 
 const PositionRow = styled.div`
   display: flex;
-  width: 150px;
+  width: 200px;
   justify-content: space-between;
   padding-bottom: 20px;
   margin: 0 auto;

@@ -1,5 +1,11 @@
 import { useEffect, useState } from "react";
-import halfPPR from "../data/all.json";
+import all from "../data/all.json";
+import wr from "../data/wr.json";
+import te from "../data/te.json";
+import qb from "../data/qb.json";
+import def from "../data/def.json";
+import rb from "../data/rb.json";
+
 import { useLocation, useNavigate } from "react-router-dom";
 import {
   Container,
@@ -16,20 +22,42 @@ import {
   Updated,
 } from "./components.js";
 
+interface playerData {
+  name: string;
+  rank: number;
+  standardRank?: number;
+  pprRank?: number;
+  position?: string;
+  team?: string;
+}
 const Home = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const positions = ["QB", "RB", "WR", "TE"];
-  const [sortedRanks, setSortedRanks] = useState(halfPPR);
-  const [fullRanks, setFullRanks] = useState(
-    !positions.includes(location.pathname.replace("/", ""))
-  );
+  const positions = ["QB", "RB", "WR", "TE", "DEF"];
+  const [sortedRanks, setSortedRanks] = useState<playerData[]>(all);
 
   const positionFilter = () => {
     const selectedPosition = location.pathname.replace("/", "");
-    return positions.includes(selectedPosition)
-      ? halfPPR.filter((player) => player.position == selectedPosition)
-      : halfPPR;
+    switch (selectedPosition) {
+      case "QB":
+        setSortedRanks(qb);
+        break;
+      case "RB":
+        setSortedRanks(rb);
+        break;
+      case "WR":
+        setSortedRanks(wr);
+        break;
+      case "TE":
+        setSortedRanks(te);
+        break;
+      case "DEF":
+        setSortedRanks(def);
+        break;
+      default:
+        setSortedRanks(all);
+        break;
+    }
   };
 
   const positionPress = (position: string) => {
@@ -50,10 +78,92 @@ const Home = () => {
   };
 
   useEffect(() => {
-    const selectedPosition = location.pathname.replace("/", "");
-    setFullRanks(!positions.includes(selectedPosition));
-    setSortedRanks(positionFilter());
+    positionFilter();
   }, [location]);
+
+  const getFirstColumnDynamicHeading = () => {
+    const selectedPosition = location.pathname.replace("/", "");
+    switch (selectedPosition) {
+      case "QB":
+      case "DEF":
+        return "";
+      case "RB":
+      case "WR":
+      case "TE":
+        return "Team";
+      default:
+        return "Pos";
+    }
+  };
+
+  const getSecondColumnDynamicHeading = () => {
+    const selectedPosition = location.pathname.replace("/", "");
+    switch (selectedPosition) {
+      case "QB":
+      case "DEF":
+      case "TE":
+        return "";
+      case "RB":
+      case "WR":
+      default:
+        return "Std";
+    }
+  };
+  const getThirdColumnDynamicHeading = () => {
+    const selectedPosition = location.pathname.replace("/", "");
+    switch (selectedPosition) {
+      case "QB":
+      case "TE":
+      case "DEF":
+        return "";
+      case "RB":
+      case "WR":
+      default:
+        return "PPR";
+    }
+  };
+
+  const getFirstColumnDynamicData = (player: playerData) => {
+    const selectedPosition = location.pathname.replace("/", "");
+    switch (selectedPosition) {
+      case "DEF":
+        return "";
+      case "QB":
+      case "TE":
+      case "RB":
+      case "WR":
+        return player.team;
+      default:
+        return player.position;
+    }
+  };
+  const getSecondColumnDynamicData = (player: playerData) => {
+    const selectedPosition = location.pathname.replace("/", "");
+    switch (selectedPosition) {
+      case "QB":
+      case "DEF":
+      case "TE":
+        return "";
+      case "RB":
+      case "WR":
+      default:
+        return player.standardRank;
+    }
+  };
+
+  const getThirdColumnDynamicData = (player: playerData) => {
+    const selectedPosition = location.pathname.replace("/", "");
+    switch (selectedPosition) {
+      case "QB":
+      case "DEF":
+      case "TE":
+        return "";
+      case "RB":
+      case "WR":
+      default:
+        return player.pprRank;
+    }
+  };
 
   return (
     <Container>
@@ -102,6 +212,12 @@ const Home = () => {
         >
           TE
         </PositionButton>
+        <PositionButton
+          style={{ border: getUnderline("DEF") ? "1px solid" : "none" }}
+          onClick={() => positionPress("DEF")}
+        >
+          DEF
+        </PositionButton>
       </PositionRow>
       <RankRow style={{ marginBottom: "10px" }}>
         <Rank style={{ fontWeight: 600, textDecoration: "underline" }}>
@@ -116,33 +232,23 @@ const Home = () => {
         >
           Name
         </Name>
-        {fullRanks ? (
-          <Position style={{ fontWeight: 600, textDecoration: "underline" }}>
-            Pos
-          </Position>
-        ) : (
-          <Position style={{ fontWeight: 600, textDecoration: "underline" }}>
-            0.5
-          </Position>
-        )}
-        <StandardRank style={{ fontWeight: 600, textDecoration: "underline" }}>
-          Std
-        </StandardRank>
-        <PPRRank style={{ fontWeight: 600, textDecoration: "underline" }}>
-          PPR
-        </PPRRank>
+        <Position style={{ fontWeight: 600, textDecoration: "underline" }}>
+          {getFirstColumnDynamicHeading()}
+        </Position>
+        <Position style={{ fontWeight: 600, textDecoration: "underline" }}>
+          {getSecondColumnDynamicHeading()}
+        </Position>
+        <Position style={{ fontWeight: 600, textDecoration: "underline" }}>
+          {getThirdColumnDynamicHeading()}
+        </Position>
       </RankRow>
       {sortedRanks.map((player, i) => (
         <RankRow key={`player-rank-${i}`}>
           <Rank>{i + 1}</Rank>
           <Name>{player.name}</Name>
-          {fullRanks ? (
-            <Position>{player.position}</Position>
-          ) : (
-            <Position>{player.rank}</Position>
-          )}
-          <StandardRank>{player.standardRank}</StandardRank>
-          <PPRRank>{player.pprRank}</PPRRank>
+          <Position>{getFirstColumnDynamicData(player)}</Position>
+          <StandardRank>{getSecondColumnDynamicData(player)}</StandardRank>
+          <PPRRank>{getThirdColumnDynamicData(player)}</PPRRank>
         </RankRow>
       ))}
     </Container>
