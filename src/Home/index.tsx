@@ -84,13 +84,12 @@ const Home = () => {
   const getFirstColumnDynamicHeading = () => {
     const selectedPosition = location.pathname.replace("/", "");
     switch (selectedPosition) {
-      case "QB":
       case "DEF":
-        return "";
+      case "QB":
       case "RB":
       case "WR":
       case "TE":
-        return "Team";
+        return "Opp";
       default:
         return "Pos";
     }
@@ -127,7 +126,6 @@ const Home = () => {
     const selectedPosition = location.pathname.replace("/", "");
     switch (selectedPosition) {
       case "DEF":
-        return "";
       case "QB":
       case "TE":
       case "RB":
@@ -167,7 +165,9 @@ const Home = () => {
 
   return (
     <Container>
-      <Heading>Harris Footbal half PPR unofficial ranks</Heading>
+      <Heading>
+        Harris Footbal half PPR unofficial <br /> Week 1 ranks
+      </Heading>
       <Disclaimer>
         These are <b>NOT</b> offical ranks from Christopher Harris. <br />{" "}
         {`These
@@ -180,13 +180,13 @@ const Home = () => {
         </a>
         . <br /> This site is not affiliated with Christopher Harris.
       </Disclaimer>
-      <Updated>(Updated 9/3 - 2:45pm PST)</Updated>
+      <Updated>(Updated 9/6 - 9:00am PST)</Updated>
       <PositionRow>
         <PositionButton
           style={{ border: getUnderline("all") ? "1px solid" : "none" }}
           onClick={() => positionPress("")}
         >
-          All
+          RoS
         </PositionButton>
         <PositionButton
           style={{ border: getUnderline("QB") ? "1px solid" : "none" }}
@@ -232,7 +232,13 @@ const Home = () => {
         >
           Name
         </Name>
-        <Position style={{ fontWeight: 600, textDecoration: "underline" }}>
+        <Position
+          style={{
+            fontWeight: 600,
+            textDecoration: "underline",
+            width: "55px",
+          }}
+        >
           {getFirstColumnDynamicHeading()}
         </Position>
         <Position style={{ fontWeight: 600, textDecoration: "underline" }}>
@@ -246,7 +252,9 @@ const Home = () => {
         <RankRow key={`player-rank-${i}`}>
           <Rank>{i + 1}</Rank>
           <Name>{player.name}</Name>
-          <Position>{getFirstColumnDynamicData(player)}</Position>
+          <Position style={{ width: "55px", textAlign: "left" }}>
+            {getFirstColumnDynamicData(player)}
+          </Position>
           <StandardRank>{getSecondColumnDynamicData(player)}</StandardRank>
           <PPRRank>{getThirdColumnDynamicData(player)}</PPRRank>
         </RankRow>
