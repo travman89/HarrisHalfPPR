@@ -216,7 +216,7 @@ const Home = () => {
           style={{ border: getUnderline("DEF") ? "1px solid" : "none" }}
           onClick={() => positionPress("DEF")}
         >
-          DEF
+          Def
         </PositionButton>
       </PositionRow>
       <RankRow style={{ marginBottom: "10px" }}>
@@ -252,7 +252,7 @@ const Home = () => {
         <RankRow key={`player-rank-${i}`}>
           <Rank>{i + 1}</Rank>
           <Name>{player.name}</Name>
-          <Position style={{ width: "55px", textAlign: "left" }}>
+          <Position style={{ width: "55px" }}>
             {getFirstColumnDynamicData(player)}
           </Position>
           <StandardRank>{getSecondColumnDynamicData(player)}</StandardRank>

@@ -63,7 +63,7 @@ const Rank = styled.div`
 `;
 const Name = styled.div`
   width: 190px;
-  text-align: left;
+  text-align: center;
   overflow: hidden;
   text-wrap: nowrap;
 `;
