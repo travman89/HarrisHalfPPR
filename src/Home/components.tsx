@@ -47,11 +47,12 @@ const Updated = styled.div`
 const RankRow = styled.div`
   display: flex;
   margin: 0 auto;
-  width: 360px;
+  width: 460px;
   max-width: 100%;
   justify-content: space-between;
   padding-bottom: 4px;
   @media (max-width: 440px) {
+    width: 360px;
     div {
       font-size: 12px;
     }
@@ -59,27 +60,27 @@ const RankRow = styled.div`
 `;
 const Rank = styled.div`
   width: 40px;
-  text-align: center;
+  text-align: left;
 `;
 const Name = styled.div`
   width: 190px;
-  text-align: center;
+  text-align: left;
   overflow: hidden;
   text-wrap: nowrap;
 `;
 
 const Position = styled.div`
   width: 35px;
-  text-align: center;
+  text-align: left;
 `;
 const StandardRank = styled.div`
   width: 35px;
-  text-align: center;
+  text-align: left;
 `;
 
 const PPRRank = styled.div`
   width: 35px;
-  text-align: center;
+  text-align: left;
 `;
 
 const PositionRow = styled.div`
