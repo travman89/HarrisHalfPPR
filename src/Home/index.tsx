@@ -36,8 +36,12 @@ const Home = () => {
   const positions = ["QB", "RB", "WR", "TE", "DEF"];
   const [sortedRanks, setSortedRanks] = useState<playerData[]>(all);
 
+  const getSelectedLocation = () => {
+    return location.pathname.replace("/", "");
+  };
+
   const positionFilter = () => {
-    const selectedPosition = location.pathname.replace("/", "");
+    const selectedPosition = getSelectedLocation();
     switch (selectedPosition) {
       case "QB":
         setSortedRanks(qb);
@@ -64,8 +68,20 @@ const Home = () => {
     navigate(`/${position}`);
   };
 
+  const is3Columns = (): boolean => {
+    switch (getSelectedLocation()) {
+      case "QB":
+      case "TE":
+      case "DEF":
+        console.log("true");
+        return true;
+      default:
+        console.log("false");
+        return false;
+    }
+  };
   const getUnderline = (position) => {
-    const selectedPosition = location.pathname.replace("/", "");
+    const selectedPosition = getSelectedLocation();
     if (position === "all" && !positions.includes(selectedPosition)) {
       return true;
     } else if (
@@ -82,7 +98,7 @@ const Home = () => {
   }, [location]);
 
   const getFirstColumnDynamicHeading = () => {
-    const selectedPosition = location.pathname.replace("/", "");
+    const selectedPosition = getSelectedLocation();
     switch (selectedPosition) {
       case "DEF":
       case "QB":
@@ -96,7 +112,7 @@ const Home = () => {
   };
 
   const getSecondColumnDynamicHeading = () => {
-    const selectedPosition = location.pathname.replace("/", "");
+    const selectedPosition = getSelectedLocation();
     switch (selectedPosition) {
       case "QB":
       case "DEF":
@@ -109,7 +125,7 @@ const Home = () => {
     }
   };
   const getThirdColumnDynamicHeading = () => {
-    const selectedPosition = location.pathname.replace("/", "");
+    const selectedPosition = getSelectedLocation();
     switch (selectedPosition) {
       case "QB":
       case "TE":
@@ -123,7 +139,7 @@ const Home = () => {
   };
 
   const getFirstColumnDynamicData = (player: playerData) => {
-    const selectedPosition = location.pathname.replace("/", "");
+    const selectedPosition = getSelectedLocation();
     switch (selectedPosition) {
       case "DEF":
       case "QB":
@@ -136,7 +152,7 @@ const Home = () => {
     }
   };
   const getSecondColumnDynamicData = (player: playerData) => {
-    const selectedPosition = location.pathname.replace("/", "");
+    const selectedPosition = getSelectedLocation();
     switch (selectedPosition) {
       case "QB":
       case "DEF":
@@ -150,7 +166,7 @@ const Home = () => {
   };
 
   const getThirdColumnDynamicData = (player: playerData) => {
-    const selectedPosition = location.pathname.replace("/", "");
+    const selectedPosition = getSelectedLocation();
     switch (selectedPosition) {
       case "QB":
       case "DEF":
@@ -241,12 +257,16 @@ const Home = () => {
         >
           {getFirstColumnDynamicHeading()}
         </Position>
-        <Position style={{ fontWeight: 600, textDecoration: "underline" }}>
-          {getSecondColumnDynamicHeading()}
-        </Position>
-        <Position style={{ fontWeight: 600, textDecoration: "underline" }}>
-          {getThirdColumnDynamicHeading()}
-        </Position>
+        {!is3Columns() && (
+          <Position style={{ fontWeight: 600, textDecoration: "underline" }}>
+            {getSecondColumnDynamicHeading()}
+          </Position>
+        )}
+        {!is3Columns() && (
+          <Position style={{ fontWeight: 600, textDecoration: "underline" }}>
+            {getThirdColumnDynamicHeading()}
+          </Position>
+        )}
       </RankRow>
       {sortedRanks.map((player, i) => (
         <RankRow key={`player-rank-${i}`}>
@@ -255,8 +275,13 @@ const Home = () => {
           <Position style={{ width: "55px" }}>
             {getFirstColumnDynamicData(player)}
           </Position>
-          <StandardRank>{getSecondColumnDynamicData(player)}</StandardRank>
-          <PPRRank>{getThirdColumnDynamicData(player)}</PPRRank>
+
+          {!is3Columns() && (
+            <StandardRank>{getSecondColumnDynamicData(player)}</StandardRank>
+          )}
+          {!is3Columns() && (
+            <PPRRank>{getThirdColumnDynamicData(player)}</PPRRank>
+          )}
         </RankRow>
       ))}
     </Container>

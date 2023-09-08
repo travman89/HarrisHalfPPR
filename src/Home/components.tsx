@@ -47,14 +47,18 @@ const Updated = styled.div`
 const RankRow = styled.div`
   display: flex;
   margin: 0 auto;
-  width: 460px;
-  max-width: 100%;
-  justify-content: space-between;
+  flex-basis: auto;
+  max-width: 460px;
+  justify-content: center;
   padding-bottom: 4px;
+  div {
+    margin: 0 5px;
+  }
   @media (max-width: 440px) {
-    width: 360px;
+    max-width: 360px;
     div {
       font-size: 12px;
+      margin: 0;
     }
   }
 `;
@@ -86,7 +90,7 @@ const PPRRank = styled.div`
 const PositionRow = styled.div`
   display: flex;
   width: 200px;
-  justify-content: space-between;
+  justify-content: center;
   padding-bottom: 20px;
   margin: 0 auto;
 `;
