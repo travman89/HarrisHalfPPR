@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import all from "../data/all.json";
+// import all from "../data/all.json";
 import wr from "../data/wr.json";
 import te from "../data/te.json";
 import qb from "../data/qb.json";
@@ -34,7 +34,7 @@ const Home = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const positions = ["QB", "RB", "WR", "TE", "DEF"];
-  const [sortedRanks, setSortedRanks] = useState<playerData[]>(all);
+  const [sortedRanks, setSortedRanks] = useState<playerData[]>(qb);
 
   const getSelectedLocation = () => {
     return location.pathname.replace("/", "");
@@ -59,7 +59,7 @@ const Home = () => {
         setSortedRanks(def);
         break;
       default:
-        setSortedRanks(all);
+        setSortedRanks(qb); //change this to all if season long ranks come back
         break;
     }
   };
@@ -73,16 +73,18 @@ const Home = () => {
       case "QB":
       case "TE":
       case "DEF":
-        console.log("true");
-        return true;
       default:
-        console.log("false");
+        return true;
+      case "WR":
+      case "RB":
         return false;
     }
   };
+
   const getUnderline = (position) => {
     const selectedPosition = getSelectedLocation();
-    if (position === "all" && !positions.includes(selectedPosition)) {
+    //this changes back to all
+    if (position === "QB" && !positions.includes(selectedPosition)) {
       return true;
     } else if (
       positions.includes(selectedPosition) &&
@@ -98,17 +100,19 @@ const Home = () => {
   }, [location]);
 
   const getFirstColumnDynamicHeading = () => {
-    const selectedPosition = getSelectedLocation();
-    switch (selectedPosition) {
-      case "DEF":
-      case "QB":
-      case "RB":
-      case "WR":
-      case "TE":
-        return "Opp";
-      default:
-        return "Pos";
-    }
+    // const selectedPosition = getSelectedLocation();
+    return "Opp";
+    //  used with season long ranks
+    // switch (selectedPosition) {
+    //   case "DEF":
+    //   case "QB":
+    //   case "RB":
+    //   case "WR":
+    //   case "TE":
+    //     return "Opp";
+    //   default:
+    //     return "Pos";
+    // }
   };
 
   const getSecondColumnDynamicHeading = () => {
@@ -139,17 +143,19 @@ const Home = () => {
   };
 
   const getFirstColumnDynamicData = (player: playerData) => {
-    const selectedPosition = getSelectedLocation();
-    switch (selectedPosition) {
-      case "DEF":
-      case "QB":
-      case "TE":
-      case "RB":
-      case "WR":
-        return player.team;
-      default:
-        return player.position;
-    }
+    return player.team;
+    // const selectedPosition = getSelectedLocation();
+    // used when ros ranks are present
+    // switch (selectedPosition) {
+    //   case "DEF":
+    //   case "QB":
+    //   case "TE":
+    //   case "RB":
+    //   case "WR":
+    //     return player.team;
+    //   default:
+    //     return player.position;
+    // }
   };
   const getSecondColumnDynamicData = (player: playerData) => {
     const selectedPosition = getSelectedLocation();
@@ -188,22 +194,19 @@ const Home = () => {
         These are <b>NOT</b> offical ranks from Christopher Harris. <br />{" "}
         {`These
         ranks are an average of the standard and full PPR ranks found on `}
-        <a
-          href="https://www.harrisfootball.com/top-160-ranks-draft"
-          target="_blank"
-        >
+        <a href="https://www.harrisfootball.com/ranks" target="_blank">
           harrisfootball.com
         </a>
         . <br /> This site is not affiliated with Christopher Harris.
       </Disclaimer>
-      <Updated>(Updated 9/9 - 11:20am PST)</Updated>
+      <Updated>(Updated 9/10 - 9:30am PST)</Updated>
       <PositionRow>
-        <PositionButton
+        {/* <PositionButton
           style={{ border: getUnderline("all") ? "1px solid" : "none" }}
           onClick={() => positionPress("")}
         >
           RoS
-        </PositionButton>
+        </PositionButton> */}
         <PositionButton
           style={{ border: getUnderline("QB") ? "1px solid" : "none" }}
           onClick={() => positionPress("QB")}

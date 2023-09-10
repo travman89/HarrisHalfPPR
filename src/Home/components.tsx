@@ -89,7 +89,6 @@ const PPRRank = styled.div`
 
 const PositionRow = styled.div`
   display: flex;
-  width: 200px;
   justify-content: center;
   padding-bottom: 20px;
   margin: 0 auto;
@@ -99,11 +98,11 @@ const PositionButton = styled.button`
   background: none;
   color: inherit;
   border: none;
-  padding: 0;
+  padding: 0 5px;
+  margin: 0 2px;
   font: inherit;
   cursor: pointer;
   outline: inherit;
-  width: 30px;
   text-align: center;
   color: #505050;
 `;
