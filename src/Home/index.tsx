@@ -20,6 +20,8 @@ import {
   PositionRow,
   PositionButton,
   Updated,
+  TableWrapper,
+  RowWrapper,
 } from "./components.js";
 
 interface playerData {
@@ -238,55 +240,68 @@ const Home = () => {
           Def
         </PositionButton>
       </PositionRow>
-      <RankRow style={{ marginBottom: "10px" }}>
-        <Rank style={{ fontWeight: 600, textDecoration: "underline" }}>
-          Rank
-        </Rank>
-        <Name
-          style={{
-            fontWeight: 600,
-            textDecoration: "underline",
-            textAlign: "center",
-          }}
-        >
-          Name
-        </Name>
-        <Position
-          style={{
-            fontWeight: 600,
-            textDecoration: "underline",
-            width: "55px",
-          }}
-        >
-          {getFirstColumnDynamicHeading()}
-        </Position>
-        {!is3Columns() && (
-          <Position style={{ fontWeight: 600, textDecoration: "underline" }}>
-            {getSecondColumnDynamicHeading()}
-          </Position>
-        )}
-        {!is3Columns() && (
-          <Position style={{ fontWeight: 600, textDecoration: "underline" }}>
-            {getThirdColumnDynamicHeading()}
-          </Position>
-        )}
-      </RankRow>
-      {sortedRanks.map((player, i) => (
-        <RankRow key={`player-rank-${i}`}>
-          <Rank>{i + 1}</Rank>
-          <Name>{player.name}</Name>
-          <Position style={{ width: "55px" }}>
-            {getFirstColumnDynamicData(player)}
-          </Position>
+      <TableWrapper>
+        <RowWrapper>
+          <RankRow style={{ marginBottom: "10px" }}>
+            <Rank style={{ fontWeight: 600, textDecoration: "underline" }}>
+              Rank
+            </Rank>
+            <Name
+              style={{
+                fontWeight: 600,
+                textDecoration: "underline",
+                textAlign: "center",
+              }}
+            >
+              Name
+            </Name>
+            <Position
+              style={{
+                fontWeight: 600,
+                textDecoration: "underline",
+                width: "55px",
+              }}
+            >
+              {getFirstColumnDynamicHeading()}
+            </Position>
+            {!is3Columns() && (
+              <Position
+                style={{ fontWeight: 600, textDecoration: "underline" }}
+              >
+                {getSecondColumnDynamicHeading()}
+              </Position>
+            )}
+            {!is3Columns() && (
+              <Position
+                style={{ fontWeight: 600, textDecoration: "underline" }}
+              >
+                {getThirdColumnDynamicHeading()}
+              </Position>
+            )}
+          </RankRow>
+        </RowWrapper>
 
-          {!is3Columns() && (
-            <StandardRank>{getSecondColumnDynamicData(player)}</StandardRank>
-          )}
-          {!is3Columns() && (
-            <PPRRank>{getThirdColumnDynamicData(player)}</PPRRank>
-          )}
-        </RankRow>
-      ))}
+        {sortedRanks.map((player, i) => (
+          <RowWrapper>
+            <RankRow key={`player-rank-${i}`}>
+              <Rank>{i + 1}</Rank>
+              <Name>{player.name}</Name>
+              <Position style={{ width: "55px" }}>
+                {getFirstColumnDynamicData(player)}
+              </Position>
+
+              {!is3Columns() && (
+                <StandardRank>
+                  {getSecondColumnDynamicData(player)}
+                </StandardRank>
+              )}
+              {!is3Columns() && (
+                <PPRRank>{getThirdColumnDynamicData(player)}</PPRRank>
+              )}
+            </RankRow>
+          </RowWrapper>
+        ))}
+      </TableWrapper>
     </Container>
   );
 };
