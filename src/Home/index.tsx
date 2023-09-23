@@ -280,7 +280,8 @@ const Home = () => {
             )}
           </RankRow>
         </RowWrapper>
-
+      </TableWrapper>
+      <TableWrapper>
         {sortedRanks.map((player, i) => (
           <RowWrapper>
             <RankRow key={`player-rank-${i}`}>

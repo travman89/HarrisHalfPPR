@@ -58,7 +58,7 @@ const RankRow = styled.tr`
   flex-basis: auto;
   max-width: 460px;
   justify-content: center;
-  padding-bottom: 4px;
+  height: 24px;
   td {
     margin: 0 5px;
   }
