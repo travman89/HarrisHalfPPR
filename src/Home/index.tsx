@@ -5,6 +5,7 @@ import te from "../data/te.json";
 import qb from "../data/qb.json";
 import def from "../data/def.json";
 import rb from "../data/rb.json";
+import ros from "../data/ros.json";
 
 import { useLocation, useNavigate } from "react-router-dom";
 import {
@@ -35,7 +36,7 @@ interface playerData {
 const Home = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const positions = ["QB", "RB", "WR", "TE", "DEF"];
+  const positions = ["QB", "RB", "WR", "TE", "DEF", "ROS"];
   const [sortedRanks, setSortedRanks] = useState<playerData[]>(qb);
 
   const getSelectedLocation = () => {
@@ -60,6 +61,9 @@ const Home = () => {
       case "DEF":
         setSortedRanks(def);
         break;
+      case "ROS":
+        setSortedRanks(ros);
+        break;
       default:
         setSortedRanks(qb); //change this to all if season long ranks come back
         break;
@@ -79,6 +83,7 @@ const Home = () => {
         return true;
       case "WR":
       case "RB":
+      case "ROS":
         return false;
     }
   };
@@ -102,19 +107,18 @@ const Home = () => {
   }, [location]);
 
   const getFirstColumnDynamicHeading = () => {
-    // const selectedPosition = getSelectedLocation();
-    return "Opp";
-    //  used with season long ranks
-    // switch (selectedPosition) {
-    //   case "DEF":
-    //   case "QB":
-    //   case "RB":
-    //   case "WR":
-    //   case "TE":
-    //     return "Opp";
-    //   default:
-    //     return "Pos";
-    // }
+    const selectedPosition = getSelectedLocation();
+    switch (selectedPosition) {
+      case "DEF":
+      case "QB":
+      case "RB":
+      case "WR":
+      case "TE":
+      default:
+        return "Opp";
+      case "ROS":
+        return "Pos";
+    }
   };
 
   const getSecondColumnDynamicHeading = () => {
@@ -126,6 +130,7 @@ const Home = () => {
         return "";
       case "RB":
       case "WR":
+      case "ROS":
       default:
         return "Std";
     }
@@ -139,25 +144,25 @@ const Home = () => {
         return "";
       case "RB":
       case "WR":
+      case "ROS":
       default:
         return "PPR";
     }
   };
 
   const getFirstColumnDynamicData = (player: playerData) => {
-    return player.team;
-    // const selectedPosition = getSelectedLocation();
-    // used when ros ranks are present
-    // switch (selectedPosition) {
-    //   case "DEF":
-    //   case "QB":
-    //   case "TE":
-    //   case "RB":
-    //   case "WR":
-    //     return player.team;
-    //   default:
-    //     return player.position;
-    // }
+    const selectedPosition = getSelectedLocation();
+    switch (selectedPosition) {
+      case "DEF":
+      case "QB":
+      case "TE":
+      case "RB":
+      case "WR":
+      default:
+        return player.team;
+      case "ROS":
+        return player.position;
+    }
   };
   const getSecondColumnDynamicData = (player: playerData) => {
     const selectedPosition = getSelectedLocation();
@@ -168,6 +173,7 @@ const Home = () => {
         return "";
       case "RB":
       case "WR":
+      case "ROS":
       default:
         return player.standardRank;
     }
@@ -182,6 +188,7 @@ const Home = () => {
         return "";
       case "RB":
       case "WR":
+      case "ROS":
       default:
         return player.pprRank;
     }
@@ -201,14 +208,8 @@ const Home = () => {
         </a>
         . <br /> This site is not affiliated with Christopher Harris.
       </Disclaimer>
-      <Updated>(Updated 9/26 - 4:20pm PST)</Updated>
+      <Updated>(Updated 9/27 - 3:15pm PST)</Updated>
       <PositionRow>
-        {/* <PositionButton
-          style={{ border: getUnderline("all") ? "1px solid" : "none" }}
-          onClick={() => positionPress("")}
-        >
-          RoS
-        </PositionButton> */}
         <PositionButton
           style={{ border: getUnderline("QB") ? "1px solid" : "none" }}
           onClick={() => positionPress("QB")}
@@ -238,6 +239,12 @@ const Home = () => {
           onClick={() => positionPress("DEF")}
         >
           Def
+        </PositionButton>
+        <PositionButton
+          style={{ border: getUnderline("ROS") ? "1px solid" : "none" }}
+          onClick={() => positionPress("ROS")}
+        >
+          RoS
         </PositionButton>
       </PositionRow>
       <TableWrapper>
