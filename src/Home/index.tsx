@@ -197,7 +197,7 @@ const Home = () => {
   return (
     <Container>
       <Heading>
-        Harris Footbal half PPR unofficial <br /> Week 5 ranks
+        Harris Footbal half PPR unofficial <br /> Week 6 ranks
       </Heading>
       <Disclaimer>
         These are <b>NOT</b> offical ranks from Christopher Harris. <br />{" "}
@@ -208,7 +208,7 @@ const Home = () => {
         </a>
         . <br /> This site is not affiliated with Christopher Harris.
       </Disclaimer>
-      <Updated>(Updated 10/8 - 7:00am PST)</Updated>
+      <Updated>(Updated 10/10 - 5:00pm PST)</Updated>
       <PositionRow>
         <PositionButton
           style={{ border: getUnderline("QB") ? "1px solid" : "none" }}
