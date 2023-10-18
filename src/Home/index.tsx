@@ -208,7 +208,7 @@ const Home = () => {
         </a>
         . <br /> This site is not affiliated with Christopher Harris.
       </Disclaimer>
-      <Updated>(Updated 10/17 - 2:25pm PST)</Updated>
+      <Updated>(Updated 10/18 - 12:40pm PST)</Updated>
       <PositionRow>
         <PositionButton
           style={{ border: getUnderline("QB") ? "1px solid" : "none" }}
