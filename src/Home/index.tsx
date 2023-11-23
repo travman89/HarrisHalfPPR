@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-// import all from "../data/all.json";
 import wr from "../data/wr.json";
 import te from "../data/te.json";
 import qb from "../data/qb.json";
@@ -37,6 +36,14 @@ const Home = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const positions = ["QB", "RB", "WR", "TE", "DEF", "ROS"];
+  const positionDataMap = {
+    QB: qb,
+    RB: rb,
+    WR: wr,
+    TE: te,
+    DEF: def,
+    ROS: ros,
+  };
   const [sortedRanks, setSortedRanks] = useState<playerData[]>(qb);
 
   const getSelectedLocation = () => {
@@ -45,29 +52,9 @@ const Home = () => {
 
   const positionFilter = () => {
     const selectedPosition = getSelectedLocation();
-    switch (selectedPosition) {
-      case "QB":
-        setSortedRanks(qb);
-        break;
-      case "RB":
-        setSortedRanks(rb);
-        break;
-      case "WR":
-        setSortedRanks(wr);
-        break;
-      case "TE":
-        setSortedRanks(te);
-        break;
-      case "DEF":
-        setSortedRanks(def);
-        break;
-      case "ROS":
-        setSortedRanks(ros);
-        break;
-      default:
-        setSortedRanks(qb); //change this to all if season long ranks come back
-        break;
-    }
+    positions.includes(selectedPosition)
+      ? setSortedRanks(positionDataMap[selectedPosition])
+      : setSortedRanks(qb);
   };
 
   const positionPress = (position: string) => {
@@ -76,15 +63,12 @@ const Home = () => {
 
   const is3Columns = (): boolean => {
     switch (getSelectedLocation()) {
-      case "QB":
-      case "TE":
-      case "DEF":
-      default:
-        return true;
       case "WR":
       case "RB":
       case "ROS":
         return false;
+      default:
+        return true;
     }
   };
 
@@ -109,15 +93,10 @@ const Home = () => {
   const getFirstColumnDynamicHeading = () => {
     const selectedPosition = getSelectedLocation();
     switch (selectedPosition) {
-      case "DEF":
-      case "QB":
-      case "RB":
-      case "WR":
-      case "TE":
-      default:
-        return "Opp";
       case "ROS":
         return "Pos";
+      default:
+        return "Opp";
     }
   };
 
@@ -128,9 +107,6 @@ const Home = () => {
       case "DEF":
       case "TE":
         return "";
-      case "RB":
-      case "WR":
-      case "ROS":
       default:
         return "Std";
     }
@@ -142,9 +118,6 @@ const Home = () => {
       case "TE":
       case "DEF":
         return "";
-      case "RB":
-      case "WR":
-      case "ROS":
       default:
         return "PPR";
     }
@@ -153,15 +126,10 @@ const Home = () => {
   const getFirstColumnDynamicData = (player: playerData) => {
     const selectedPosition = getSelectedLocation();
     switch (selectedPosition) {
-      case "DEF":
-      case "QB":
-      case "TE":
-      case "RB":
-      case "WR":
-      default:
-        return player.team;
       case "ROS":
         return player.position;
+      default:
+        return player.team;
     }
   };
   const getSecondColumnDynamicData = (player: playerData) => {
@@ -171,9 +139,6 @@ const Home = () => {
       case "DEF":
       case "TE":
         return "";
-      case "RB":
-      case "WR":
-      case "ROS":
       default:
         return player.standardRank;
     }
@@ -186,9 +151,6 @@ const Home = () => {
       case "DEF":
       case "TE":
         return "";
-      case "RB":
-      case "WR":
-      case "ROS":
       default:
         return player.pprRank;
     }
@@ -199,53 +161,16 @@ const Home = () => {
       <Heading>
         Harris Footbal half PPR unofficial <br /> Week 12 ranks
       </Heading>
-      <Disclaimer>
-        These are <b>NOT</b> offical ranks from Christopher Harris. <br />{" "}
-        {`These
-        ranks are an average of the standard and full PPR ranks found on `}
-        <a href="https://www.harrisfootball.com/ranks" target="_blank">
-          harrisfootball.com
-        </a>
-        . <br /> This site is not affiliated with Christopher Harris.
-      </Disclaimer>
       <Updated>(Updated 11/21 - 4:00pm PST)</Updated>
       <PositionRow>
-        <PositionButton
-          style={{ border: getUnderline("QB") ? "1px solid" : "none" }}
-          onClick={() => positionPress("QB")}
-        >
-          QB
-        </PositionButton>
-        <PositionButton
-          style={{ border: getUnderline("RB") ? "1px solid" : "none" }}
-          onClick={() => positionPress("RB")}
-        >
-          RB
-        </PositionButton>
-        <PositionButton
-          style={{ border: getUnderline("WR") ? "1px solid" : "none" }}
-          onClick={() => positionPress("WR")}
-        >
-          WR
-        </PositionButton>
-        <PositionButton
-          style={{ border: getUnderline("TE") ? "1px solid" : "none" }}
-          onClick={() => positionPress("TE")}
-        >
-          TE
-        </PositionButton>
-        <PositionButton
-          style={{ border: getUnderline("DEF") ? "1px solid" : "none" }}
-          onClick={() => positionPress("DEF")}
-        >
-          Def
-        </PositionButton>
-        <PositionButton
-          style={{ border: getUnderline("ROS") ? "1px solid" : "none" }}
-          onClick={() => positionPress("ROS")}
-        >
-          RoS
-        </PositionButton>
+        {positions.map((position) => (
+          <PositionButton
+            style={{ border: getUnderline(position) ? "1px solid" : "none" }}
+            onClick={() => positionPress(position)}
+          >
+            {position}
+          </PositionButton>
+        ))}
       </PositionRow>
       <TableWrapper>
         <RowWrapper>
@@ -310,6 +235,15 @@ const Home = () => {
           </RowWrapper>
         ))}
       </TableWrapper>
+      <Disclaimer>
+        These are <b>NOT</b> offical ranks from Christopher Harris. <br />{" "}
+        {`These
+        ranks are an average of the standard and full PPR ranks found on `}
+        <a href="https://www.harrisfootball.com/ranks" target="_blank">
+          harrisfootball.com
+        </a>
+        . <br /> This site is not affiliated with Christopher Harris.
+      </Disclaimer>
     </Container>
   );
 };

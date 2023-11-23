@@ -36,7 +36,7 @@ const Heading = styled.div`
 const Disclaimer = styled.div`
   text-align: center;
   font-size: 12px;
-  padding-bottom: 15px;
+  padding: 35px 0 15px;
   @media (max-width: 440px) {
     font-size: 10px;
   }
