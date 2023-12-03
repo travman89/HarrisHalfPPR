@@ -161,7 +161,7 @@ const Home = () => {
       <Heading>
         Harris Footbal half PPR unofficial <br /> Week 13 ranks
       </Heading>
-      <Updated>(Updated 11/29 - 6:45pm PST)</Updated>
+      <Updated>(Updated 12/3 - 7:30am PST)</Updated>
       <PositionRow>
         {positions.map((position) => (
           <PositionButton
