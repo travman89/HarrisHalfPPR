@@ -159,9 +159,9 @@ const Home = () => {
   return (
     <Container>
       <Heading>
-        Harris Footbal half PPR unofficial <br /> Week 16 ranks
+        Harris Footbal half PPR unofficial <br /> Week 17 ranks
       </Heading>
-      <Updated>(Updated 12/23 - 8:15am PST)</Updated>
+      <Updated>(Updated 12/27 - 8:45am PST)</Updated>
       <PositionRow>
         {positions.map((position) => (
           <PositionButton
