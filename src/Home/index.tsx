@@ -14,15 +14,16 @@ import {
   RankRow,
   Rank,
   Name,
-  StandardRank,
-  PPRRank,
   Position,
   PositionRow,
   PositionButton,
-  Updated,
   TableWrapper,
   RowWrapper,
-} from "./components.js";
+  TableContainer,
+  SubHeading,
+  TableHeadingRowWrapper,
+  FilterContainer,
+} from "../components/index.js";
 
 interface playerData {
   name: string;
@@ -158,83 +159,70 @@ const Home = () => {
 
   return (
     <Container>
-      <Heading>
-        Harris Footbal half PPR unofficial <br /> Week 17 ranks
-      </Heading>
-      <Updated>(Updated 12/29 - 2:00pm PST)</Updated>
-      <PositionRow>
-        {positions.map((position) => (
-          <PositionButton
-            style={{ border: getUnderline(position) ? "1px solid" : "none" }}
-            onClick={() => positionPress(position)}
-          >
-            {position}
-          </PositionButton>
-        ))}
-      </PositionRow>
-      <TableWrapper>
-        <RowWrapper>
-          <RankRow style={{ marginBottom: "10px" }}>
-            <Rank style={{ fontWeight: 600, textDecoration: "underline" }}>
-              Rank
-            </Rank>
-            <Name
-              style={{
-                fontWeight: 600,
-                textDecoration: "underline",
-                textAlign: "center",
-              }}
+      <FilterContainer>
+        <SubHeading>Week 17 Ranks</SubHeading>
+        <PositionRow>
+          {positions.map((position) => (
+            <PositionButton
+              selected={getUnderline(position)}
+              onClick={() => positionPress(position)}
             >
-              Name
-            </Name>
-            <Position
-              style={{
-                fontWeight: 600,
-                textDecoration: "underline",
-                width: "55px",
-              }}
-            >
-              {getFirstColumnDynamicHeading()}
-            </Position>
-            {!is3Columns() && (
-              <Position
-                style={{ fontWeight: 600, textDecoration: "underline" }}
+              {position}
+            </PositionButton>
+          ))}
+        </PositionRow>
+      </FilterContainer>
+      <TableContainer>
+        <TableWrapper>
+          <TableHeadingRowWrapper>
+            <RankRow style={{ marginBottom: "10px" }}>
+              <Rank style={{ fontWeight: 600 }}>Rank</Rank>
+              <Name
+                style={{
+                  fontWeight: 600,
+                }}
               >
-                {getSecondColumnDynamicHeading()}
-              </Position>
-            )}
-            {!is3Columns() && (
+                Name
+              </Name>
               <Position
-                style={{ fontWeight: 600, textDecoration: "underline" }}
+                style={{
+                  fontWeight: 600,
+                }}
               >
-                {getThirdColumnDynamicHeading()}
+                {getFirstColumnDynamicHeading()}
               </Position>
-            )}
-          </RankRow>
-        </RowWrapper>
-      </TableWrapper>
-      <TableWrapper>
-        {sortedRanks.map((player, i) => (
-          <RowWrapper>
-            <RankRow key={`player-rank-${i}`}>
-              <Rank>{i + 1}</Rank>
-              <Name>{player.name}</Name>
-              <Position style={{ width: "55px" }}>
-                {getFirstColumnDynamicData(player)}
-              </Position>
-
               {!is3Columns() && (
-                <StandardRank>
-                  {getSecondColumnDynamicData(player)}
-                </StandardRank>
+                <Position style={{ fontWeight: 600 }}>
+                  {getSecondColumnDynamicHeading()}
+                </Position>
               )}
               {!is3Columns() && (
-                <PPRRank>{getThirdColumnDynamicData(player)}</PPRRank>
+                <Position style={{ fontWeight: 600 }}>
+                  {getThirdColumnDynamicHeading()}
+                </Position>
               )}
             </RankRow>
-          </RowWrapper>
-        ))}
-      </TableWrapper>
+          </TableHeadingRowWrapper>
+        </TableWrapper>
+        <TableWrapper>
+          {sortedRanks.map((player, i) => (
+            <RowWrapper>
+              <RankRow key={`player-rank-${i}`}>
+                <Rank>{i + 1}</Rank>
+                <Name>{player.name}</Name>
+                <Position>{getFirstColumnDynamicData(player)}</Position>
+
+                {!is3Columns() && (
+                  <Position>{getSecondColumnDynamicData(player)}</Position>
+                )}
+                {!is3Columns() && (
+                  <Position>{getThirdColumnDynamicData(player)}</Position>
+                )}
+              </RankRow>
+            </RowWrapper>
+          ))}
+        </TableWrapper>
+      </TableContainer>
       <Disclaimer>
         These are <b>NOT</b> offical ranks from Christopher Harris. <br />{" "}
         {`These
@@ -244,6 +232,7 @@ const Home = () => {
         </a>
         . <br /> This site is not affiliated with Christopher Harris.
       </Disclaimer>
+      <Heading>Harris Half PPR</Heading>
     </Container>
   );
 };
