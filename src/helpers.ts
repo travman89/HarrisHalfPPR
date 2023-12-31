@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
-type ThemeType = "light" | "dark";
+export type ThemeType = "light" | "dark";
 
 const getTheme = (): ThemeType => {
   let appTheme = localStorage.getItem("appTheme") as ThemeType;

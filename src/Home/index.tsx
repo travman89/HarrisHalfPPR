@@ -176,7 +176,7 @@ const Home = () => {
         <TableWrapper>
           <TableHeadingRowWrapper>
             <RankRow style={{ marginBottom: "10px" }}>
-              <Rank style={{ fontWeight: 600 }}>Rank</Rank>
+              <Position style={{ fontWeight: 600 }}>Rank</Position>
               <Name
                 style={{
                   fontWeight: 600,

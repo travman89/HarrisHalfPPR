@@ -1,5 +1,6 @@
+import { useState } from "react";
 import styled from "styled-components";
-
+import { ThemeType } from "../helpers";
 const TableWrapper = styled.table`
   width: 100%;
 `;
@@ -30,7 +31,7 @@ const Heading = styled.h1`
   text-align: center;
   padding: 40px 0;
   color: ${(props) => props.theme.primary};
-  text-shadow: ${(props) => props.theme.green} 3px 3px 1px;
+  text-shadow: ${(props) => props.theme.buttonColor} 3px 3px 1px;
   @media (max-width: 440px) {
     font-size: 24px;
   }
@@ -91,19 +92,6 @@ const RankRow = styled.tr`
   td {
     padding: 0 10px;
   }
-  /*
-  td:first-child {
-    border-top-left-radius: 6px;
-  }
-  td:last-child {
-    border-top-right-radius: 6px;
-  }
-  td:first-child {
-    border-bottom-left-radius: 6px;
-  }
-  td:last-child {
-    border-bottom-right-radius: 6px;
-  } */
   @media (max-width: 380px) {
     max-width: 330px;
     td {
@@ -122,6 +110,8 @@ const RankRow = styled.tr`
 const Rank = styled.td`
   width: 10%;
   text-align: left;
+  color: ${(props) => props.theme.buttonColor} !important;
+  font-weight: 600;
 `;
 const Name = styled.td`
   width: 45%;
@@ -159,12 +149,13 @@ const PositionRow = styled.td`
 `;
 
 const PositionButton = styled.button<{ selected: boolean }>`
+  transition: all 0s !important;
   cursor: pointer;
   border: none;
   padding: 0 5px;
   margin: 0 2px;
   text-align: center;
-  color: ${(props) => (props.selected ? "#FCFCFC" : props.theme.green)};
+  color: ${(props) => (props.selected ? "#FCFCFC" : props.theme.buttonColor)};
   border-radius: 4px;
   width: 46px;
   height: 30px;
@@ -172,7 +163,8 @@ const PositionButton = styled.button<{ selected: boolean }>`
   font-weight: ${(props) => (props.selected ? 600 : 400)};
   box-sizing: border-box;
   background: none;
-  background-color: ${(props) => (props.selected ? props.theme.green : "none")};
+  background-color: ${(props) =>
+    props.selected ? props.theme.buttonColor : "none"};
 `;
 
 const TableContainer = styled.div`
@@ -190,6 +182,129 @@ const FilterContainer = styled.div`
   justify-content: space-between;
   width: 100%;
 `;
+
+const AppContainer = styled.div`
+  background: ${(props) => props.theme.background};
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+  * {
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+  }
+`;
+
+const NavContainer = styled.div`
+  box-sizing: border-box;
+  width: 100%;
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const HHPPR = styled.span`
+  font-family: "Atmospheric";
+  font-weight: 600;
+  font-size: 24px;
+  text-align: left;
+  margin-left: 40px;
+  color: ${(props) => props.theme.primary};
+  text-shadow: ${(props) => props.theme.buttonColor} 2px 2px 1px;
+  @media (max-width: 440px) {
+    font-size: 24px;
+  }
+`;
+
+const NavBar = ({ children }) => {
+  return (
+    <NavContainer>
+      <HHPPR>HHPPR</HHPPR>
+      {children}
+    </NavContainer>
+  );
+};
+
+const CheckLabel = styled.label`
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 20px;
+  margin-right: 40px;
+  margin-top: -20px;
+`;
+
+const CheckInput = styled.input`
+  opacity: 0;
+  width: 0;
+  height: 0;
+  &:checked + span {
+    &:before {
+      -webkit-transform: translateX(24px);
+      -ms-transform: translateX(24px);
+      transform: translateX(24px);
+    }
+  }
+`;
+
+const Slider = styled.span`
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: ${(props) => props.theme.toggleBackground};
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  border-radius: 34px;
+  &:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 2px;
+    bottom: 2px;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+    border-radius: 50%;
+    background-color: ${(props) => props.theme.secondary};
+  }
+`;
+const ModeToggle = ({
+  appTheme,
+  updateTheme,
+}: {
+  appTheme: ThemeType;
+  updateTheme: (theme: ThemeType) => void;
+}) => {
+  const [toggleState, setToggleState] = useState({
+    theme: appTheme,
+    checked: appTheme === "dark",
+  });
+  const handleChange = () => {
+    const newThemeState = { ...toggleState };
+    newThemeState.checked = !newThemeState.checked;
+    newThemeState.theme = newThemeState.theme === "dark" ? "light" : "dark";
+    setToggleState({ ...newThemeState });
+    updateTheme(newThemeState.theme);
+  };
+  console.log("toggleState: ", toggleState);
+  return (
+    <CheckLabel>
+      <CheckInput
+        type="checkbox"
+        checked={toggleState.checked}
+        onClick={handleChange}
+      />
+      <Slider />
+    </CheckLabel>
+  );
+};
 export {
   Container,
   Heading,
@@ -209,4 +324,7 @@ export {
   TableContainer,
   TableHeadingRowWrapper,
   FilterContainer,
+  ModeToggle,
+  AppContainer,
+  NavBar,
 };

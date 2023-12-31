@@ -22,8 +22,5 @@
 body {
   background-color:#EFEFEF;
   margin: 0;
-  * {
-    transition: color 1s;
-    }
 }
 
