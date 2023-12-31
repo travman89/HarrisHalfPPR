@@ -184,6 +184,9 @@ const TableContainer = styled.div`
   border-radius: 6px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   padding: 20px;
+  @media (max-width: 800px) {
+    padding: 10px;
+  }
 `;
 
 const FilterContainer = styled.div`
@@ -232,8 +235,12 @@ const HHPPR = styled.span`
   margin-left: 40px;
   color: ${(props) => props.theme.primary};
   text-shadow: ${(props) => props.theme.buttonColor} 2px 2px 1px;
+  @media (max-width: 800px) {
+    margin-left: 30px;
+  }
   @media (max-width: 440px) {
     font-size: 24px;
+    margin-left: 20px;
   }
 `;
 
@@ -253,6 +260,13 @@ const CheckLabel = styled.label`
   height: 20px;
   margin-right: 40px;
   margin-top: -20px;
+  @media (max-width: 800px) {
+    margin-top: -10px;
+    margin-right: 30px;
+  }
+  @media (max-width: 440px) {
+    margin-right: 20px;
+  }
 `;
 
 const CheckInput = styled.input`
