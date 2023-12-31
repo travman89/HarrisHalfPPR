@@ -13,8 +13,9 @@ const Container = styled.div`
   max-width: 800px;
   margin: 0 auto;
   overflow: hidden;
-  @media (max-width: 440px) {
+  @media (max-width: 800px) {
     width: 100%;
+    max-width: 100%;
   }
   div {
     color: ${(props) => props.theme.primary};
@@ -49,6 +50,9 @@ const SubHeading = styled.h2`
   color: ${(props) => props.theme.primary};
   @media (max-width: 440px) {
     font-size: 24px;
+  }
+  @media (max-width: 800px) {
+    text-align: center;
   }
 `;
 const Disclaimer = styled.div`
@@ -97,6 +101,7 @@ const RankRow = styled.tr`
     td {
       font-size: 12px;
       margin: 0;
+      padding: 0 5px;
     }
   }
   @media (max-width: 440px) and (min-width: 381px) {
@@ -104,6 +109,7 @@ const RankRow = styled.tr`
     td {
       font-size: 12px;
       margin: 0;
+      padding: 0 5px;
     }
   }
 `;
@@ -146,6 +152,10 @@ const PositionRow = styled.td`
   justify-content: center;
   padding-bottom: 20px;
   margin: 0 auto;
+  @media (max-width: 800px) {
+    margin: 15px auto;
+    padding: 0;
+  }
 `;
 
 const PositionButton = styled.button<{ selected: boolean }>`
@@ -181,6 +191,10 @@ const FilterContainer = styled.div`
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
+  @media (max-width: 800px) {
+    flex-direction: column;
+    justify-content: center;
+  }
 `;
 
 const AppContainer = styled.div`
@@ -205,6 +219,9 @@ const NavContainer = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  @media (max-width: 800px) {
+    height: 60px;
+  }
 `;
 
 const HHPPR = styled.span`
