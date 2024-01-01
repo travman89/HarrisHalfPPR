@@ -23,6 +23,7 @@ import {
   SubHeading,
   TableHeadingRowWrapper,
   FilterContainer,
+  HarrisLink,
 } from "../components/index.js";
 
 interface playerData {
@@ -223,16 +224,16 @@ const Home = () => {
           ))}
         </TableWrapper>
       </TableContainer>
+      <Heading>Harris Half PPR</Heading>
       <Disclaimer>
         These are <b>NOT</b> offical ranks from Christopher Harris. <br />{" "}
         {`These
         ranks are an average of the standard and full PPR ranks found on `}
-        <a href="https://www.harrisfootball.com/ranks" target="_blank">
+        <HarrisLink href="https://www.harrisfootball.com/ranks" target="_blank">
           harrisfootball.com
-        </a>
+        </HarrisLink>
         . <br /> This site is not affiliated with Christopher Harris.
       </Disclaimer>
-      <Heading>Harris Half PPR</Heading>
     </Container>
   );
 };

@@ -1,6 +1,8 @@
 import { useState } from "react";
 import styled from "styled-components";
 import { ThemeType } from "../helpers";
+import SunComponent from "../assets/sun.svg?react";
+import MoonComponent from "../assets/moon.svg?react";
 const TableWrapper = styled.table`
   width: 100%;
 `;
@@ -24,6 +26,8 @@ const Container = styled.div`
     color: ${(props) => props.theme.primary};
   }
 `;
+import SunImage from "../assets/sun.svg";
+import MoonImage from "../assets/moon.svg";
 
 const Heading = styled.h1`
   font-family: "Atmospheric";
@@ -186,6 +190,7 @@ const TableContainer = styled.div`
   padding: 20px;
   @media (max-width: 800px) {
     padding: 10px;
+    border-radius: 0px;
   }
 `;
 
@@ -258,15 +263,6 @@ const CheckLabel = styled.label`
   display: inline-block;
   width: 44px;
   height: 20px;
-  margin-right: 40px;
-  margin-top: -20px;
-  @media (max-width: 800px) {
-    margin-top: -10px;
-    margin-right: 30px;
-  }
-  @media (max-width: 440px) {
-    margin-right: 20px;
-  }
 `;
 
 const CheckInput = styled.input`
@@ -303,9 +299,46 @@ const Slider = styled.span`
     -webkit-transition: 0.4s;
     transition: 0.4s;
     border-radius: 50%;
-    background-color: ${(props) => props.theme.secondary};
+    background-color: ${(props) => props.theme.background};
+  }
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const Sun = styled(SunComponent)<{ toggled: boolean }>`
+  width: 16px;
+  height: 16px;
+  margin: 0 3px;
+  & path {
+    fill: ${(props) =>
+      props.toggled ? props.theme.primary : props.theme.background};
   }
 `;
+
+const Moon = styled(MoonComponent)`
+  width: 13px;
+  height: 13px;
+  margin: 0 3px;
+  & path {
+    fill: ${(props) =>
+      !props.toggled ? props.theme.primary : props.theme.background};
+  }
+`;
+
+const ToggleIconWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  margin-right: 40px;
+  @media (max-width: 800px) {
+    margin-right: 30px;
+  }
+  @media (max-width: 440px) {
+    margin-right: 20px;
+  }
+`;
+
 const ModeToggle = ({
   appTheme,
   updateTheme,
@@ -326,16 +359,25 @@ const ModeToggle = ({
   };
   console.log("toggleState: ", toggleState);
   return (
-    <CheckLabel>
-      <CheckInput
-        type="checkbox"
-        checked={toggleState.checked}
-        onClick={handleChange}
-      />
-      <Slider />
-    </CheckLabel>
+    <ToggleIconWrapper>
+      <Sun src={SunImage} toggled={toggleState.checked} />
+      <CheckLabel>
+        <CheckInput
+          type="checkbox"
+          checked={toggleState.checked}
+          onClick={handleChange}
+        />
+        <Slider />
+      </CheckLabel>
+      <Moon src={MoonImage} toggled={toggleState.checked} />
+    </ToggleIconWrapper>
   );
 };
+
+const HarrisLink = styled.a`
+  color: ${(props) => props.theme.buttonColor};
+`;
+
 export {
   Container,
   Heading,
@@ -358,4 +400,8 @@ export {
   ModeToggle,
   AppContainer,
   NavBar,
+  HarrisLink,
+  Sun,
+  Moon,
+  ToggleIconWrapper,
 };
