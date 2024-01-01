@@ -4,9 +4,7 @@
     "skipLibCheck": true,
     "module": "ESNext",
     "moduleResolution": "bundler",
-    "allowSyntheticDefaultImports": true,
-    "types": ["vite/client", "node"],
-    "typeRoots": ["./node_modules/@types/", "./types", "./node_modules"]
+    "allowSyntheticDefaultImports": true
   },
   "include": ["vite.config.ts"]
 }
