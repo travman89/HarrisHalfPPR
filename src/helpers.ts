@@ -9,7 +9,6 @@ const getTheme = (): ThemeType => {
     "(prefers-color-scheme: dark)"
   ).matches;
   if (!appTheme) {
-    console.log("inhere", appTheme, isSystemDarkmode);
     if (isSystemDarkmode) {
       appTheme = "dark";
       localStorage.setItem("appTheme", "dark");

@@ -167,6 +167,7 @@ const Home = () => {
             <PositionButton
               selected={getUnderline(position)}
               onClick={() => positionPress(position)}
+              key={`position-${position}`}
             >
               {position}
             </PositionButton>
@@ -206,20 +207,22 @@ const Home = () => {
           </TableHeadingRowWrapper>
         </TableWrapper>
         <TableWrapper>
-          {sortedRanks.map((player, i) => (
-            <RankRow key={`player-rank-${i}`}>
-              <Rank>{i + 1}</Rank>
-              <Name>{player.name}</Name>
-              <Position>{getFirstColumnDynamicData(player)}</Position>
+          <tbody>
+            {sortedRanks.map((player, i) => (
+              <RankRow key={`player-rank-${i}`}>
+                <Rank>{i + 1}</Rank>
+                <Name>{player.name}</Name>
+                <Position>{getFirstColumnDynamicData(player)}</Position>
 
-              {!is3Columns() && (
-                <Position>{getSecondColumnDynamicData(player)}</Position>
-              )}
-              {!is3Columns() && (
-                <Position>{getThirdColumnDynamicData(player)}</Position>
-              )}
-            </RankRow>
-          ))}
+                {!is3Columns() && (
+                  <Position>{getSecondColumnDynamicData(player)}</Position>
+                )}
+                {!is3Columns() && (
+                  <Position>{getThirdColumnDynamicData(player)}</Position>
+                )}
+              </RankRow>
+            ))}
+          </tbody>
         </TableWrapper>
       </TableContainer>
       <Heading>Harris Half PPR</Heading>

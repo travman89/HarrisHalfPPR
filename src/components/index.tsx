@@ -26,8 +26,6 @@ const Container = styled.div`
     color: ${(props) => props.theme.primary};
   }
 `;
-import SunImage from "../assets/sun.svg";
-import MoonImage from "../assets/moon.svg";
 
 const Heading = styled.h1`
   font-family: "Atmospheric";
@@ -157,7 +155,7 @@ const PPRRank = styled.td`
   }
 `;
 
-const PositionRow = styled.td`
+const PositionRow = styled.div`
   display: flex;
   justify-content: center;
   padding-bottom: 20px;
@@ -324,7 +322,7 @@ const Sun = styled(SunComponent)<{ toggled: boolean }>`
   }
 `;
 
-const Moon = styled(MoonComponent)`
+const Moon = styled(MoonComponent)<{ toggled: boolean }>`
   width: 13px;
   height: 13px;
   margin: 0 3px;
@@ -367,16 +365,17 @@ const ModeToggle = ({
   console.log("toggleState: ", toggleState);
   return (
     <ToggleIconWrapper>
-      <Sun src={SunImage} toggled={toggleState.checked} />
+      <Sun toggled={toggleState.checked} />
       <CheckLabel>
         <CheckInput
           type="checkbox"
           checked={toggleState.checked}
           onClick={handleChange}
+          onChange={() => null}
         />
         <Slider />
       </CheckLabel>
-      <Moon src={MoonImage} toggled={toggleState.checked} />
+      <Moon toggled={toggleState.checked} />
     </ToggleIconWrapper>
   );
 };
