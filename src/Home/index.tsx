@@ -18,7 +18,7 @@ import {
   PositionRow,
   PositionButton,
   TableWrapper,
-  RowWrapper,
+  ColumnHeadings,
   TableContainer,
   SubHeading,
   TableHeadingRowWrapper,
@@ -176,7 +176,7 @@ const Home = () => {
       <TableContainer>
         <TableWrapper>
           <TableHeadingRowWrapper>
-            <RankRow style={{ marginBottom: "10px" }}>
+            <ColumnHeadings style={{ marginBottom: "10px" }}>
               <Position style={{ fontWeight: 600 }}>Rank</Position>
               <Name
                 style={{
@@ -202,25 +202,23 @@ const Home = () => {
                   {getThirdColumnDynamicHeading()}
                 </Position>
               )}
-            </RankRow>
+            </ColumnHeadings>
           </TableHeadingRowWrapper>
         </TableWrapper>
         <TableWrapper>
           {sortedRanks.map((player, i) => (
-            <RowWrapper>
-              <RankRow key={`player-rank-${i}`}>
-                <Rank>{i + 1}</Rank>
-                <Name>{player.name}</Name>
-                <Position>{getFirstColumnDynamicData(player)}</Position>
+            <RankRow key={`player-rank-${i}`}>
+              <Rank>{i + 1}</Rank>
+              <Name>{player.name}</Name>
+              <Position>{getFirstColumnDynamicData(player)}</Position>
 
-                {!is3Columns() && (
-                  <Position>{getSecondColumnDynamicData(player)}</Position>
-                )}
-                {!is3Columns() && (
-                  <Position>{getThirdColumnDynamicData(player)}</Position>
-                )}
-              </RankRow>
-            </RowWrapper>
+              {!is3Columns() && (
+                <Position>{getSecondColumnDynamicData(player)}</Position>
+              )}
+              {!is3Columns() && (
+                <Position>{getThirdColumnDynamicData(player)}</Position>
+              )}
+            </RankRow>
           ))}
         </TableWrapper>
       </TableContainer>

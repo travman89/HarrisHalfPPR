@@ -83,9 +83,6 @@ const RowWrapper = styled.tbody`
   width: 100%;
   &:nth-child(odd) {
     background-color: ${(props) => props.theme.rowBackground};
-    > tr > td {
-      line-height: 36px;
-    }
   }
 `;
 
@@ -93,10 +90,14 @@ const RankRow = styled.tr`
   display: flex;
   margin: 0 auto;
   flex-basis: auto;
+  width: 100%;
   max-width: 100%;
   justify-content: space-between;
   align-items: center;
-  height: 36px;
+  height: 28px;
+  &:nth-child(odd) {
+    background-color: ${(props) => props.theme.rowBackground};
+  }
   td {
     padding: 0 10px;
   }
@@ -116,6 +117,11 @@ const RankRow = styled.tr`
       padding: 0 5px;
     }
   }
+`;
+
+const ColumnHeadings = styled(RankRow)`
+  background-color: transparent !important;
+  margin-bottom: 5px;
 `;
 const Rank = styled.td`
   width: 10%;
@@ -405,4 +411,5 @@ export {
   Sun,
   Moon,
   ToggleIconWrapper,
+  ColumnHeadings,
 };
