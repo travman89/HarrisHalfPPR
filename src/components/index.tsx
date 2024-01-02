@@ -7,6 +7,7 @@ const TableWrapper = styled.table`
   width: 100%;
 `;
 const Container = styled.div`
+  min-height: 100vh;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -362,7 +363,6 @@ const ModeToggle = ({
     setToggleState({ ...newThemeState });
     updateTheme(newThemeState.theme);
   };
-  console.log("toggleState: ", toggleState);
   return (
     <ToggleIconWrapper>
       <Sun toggled={toggleState.checked} />
