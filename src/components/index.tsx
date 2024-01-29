@@ -336,12 +336,12 @@ const Moon = styled(MoonComponent)<{ toggled: boolean }>`
 const ToggleIconWrapper = styled.div`
   display: flex;
   align-items: center;
-  margin-right: 40px;
+  margin-right: 30px;
   @media (max-width: 800px) {
-    margin-right: 30px;
+    margin-right: 20px;
   }
   @media (max-width: 440px) {
-    margin-right: 20px;
+    margin-right: 10px;
   }
 `;
 

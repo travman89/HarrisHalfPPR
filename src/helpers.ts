@@ -4,7 +4,6 @@ export type ThemeType = "light" | "dark";
 
 const getTheme = (): ThemeType => {
   let appTheme = localStorage.getItem("appTheme") as ThemeType;
-  console.log(appTheme);
   const isSystemDarkmode = window.matchMedia(
     "(prefers-color-scheme: dark)"
   ).matches;

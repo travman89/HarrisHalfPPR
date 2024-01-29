@@ -11,10 +11,10 @@ export const theme = {
   dark: {
     primary: "#F0F0F0",
     secondary: "#003060",
-    buttonColor: "#0090FF",
+    buttonColor: "#20B0FF",
     background: "rgba(0, 25,55, 1)",
-    containerColor: "#002760",
-    rowBackground: "rgba(0, 15, 85, 1)",
+    containerColor: "#103770",
+    rowBackground: "rgba(20, 35, 105, 1)",
     toggleBackground: "rgba(240, 240, 240, 1)",
   },
 };
