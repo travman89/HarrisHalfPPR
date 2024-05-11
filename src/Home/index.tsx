@@ -177,7 +177,7 @@ const Home = () => {
         </PositionRow>
       </FilterContainer>
       <TableContainer>
-        <TableWrapper>
+        <TableWrapper style={{ borderSpacing: 0 }}>
           <TableHeadingRowWrapper>
             <ColumnHeadings style={{ marginBottom: "10px" }}>
               <Position style={{ fontWeight: 600 }}>Rank</Position>
