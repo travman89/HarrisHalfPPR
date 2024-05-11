@@ -313,23 +313,23 @@ const Slider = styled.span`
   align-items: center;
 `;
 
-const Sun = styled(SunComponent)<{ toggled: boolean }>`
+const Sun = styled(SunComponent)<{ $toggled: boolean }>`
   width: 16px;
   height: 16px;
   margin: 0 3px;
   & path {
     fill: ${(props) =>
-      props.toggled ? props.theme.primary : props.theme.background};
+      props.$toggled ? props.theme.primary : props.theme.background};
   }
 `;
 
-const Moon = styled(MoonComponent)<{ toggled: boolean }>`
+const Moon = styled(MoonComponent)<{ $toggled: boolean }>`
   width: 13px;
   height: 13px;
   margin: 0 3px;
   & path {
     fill: ${(props) =>
-      !props.toggled ? props.theme.primary : props.theme.background};
+      !props.$toggled ? props.theme.primary : props.theme.background};
   }
 `;
 
@@ -365,7 +365,7 @@ const ModeToggle = ({
   };
   return (
     <ToggleIconWrapper>
-      <Sun toggled={toggleState.checked} />
+      <Sun $toggled={toggleState.checked} />
       <CheckLabel>
         <CheckInput
           type="checkbox"
@@ -375,7 +375,7 @@ const ModeToggle = ({
         />
         <Slider />
       </CheckLabel>
-      <Moon toggled={toggleState.checked} />
+      <Moon $toggled={toggleState.checked} />
     </ToggleIconWrapper>
   );
 };
