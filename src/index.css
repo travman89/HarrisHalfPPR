@@ -1,10 +1,16 @@
+@font-face {
+  font-family: "Atmospheric"; 
+  src: local("Atmospheric"),
+    url("./fonts/Atmospheric.ttf") format("truetype");
+}
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
   color-scheme: light dark;
-  background-color: #f9ca10;
+  background-color: #EFEFEF;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -14,5 +20,7 @@
 }
 
 body {
-  background-color:#f9ca10;
+  background-color:#EFEFEF;
+  margin: 0;
 }
+

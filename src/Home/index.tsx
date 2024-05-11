@@ -14,15 +14,18 @@ import {
   RankRow,
   Rank,
   Name,
-  StandardRank,
-  PPRRank,
   Position,
   PositionRow,
   PositionButton,
-  Updated,
   TableWrapper,
-  RowWrapper,
-} from "./components.js";
+  ColumnHeadings,
+  TableContainer,
+  SubHeading,
+  TableHeadingRowWrapper,
+  FilterContainer,
+  HarrisLink,
+  UpdatedText,
+} from "../components/index.js";
 
 interface playerData {
   name: string;
@@ -35,14 +38,15 @@ interface playerData {
 const Home = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const positions = ["QB", "RB", "WR", "TE", "DEF", "ROS"];
+  // const positions = ["QB", "RB", "WR", "TE", "DEF", "ROS"];   positions for weekly ranks
+  const positions = ["QB", "RB", "WR", "TE"];
   const positionDataMap = {
     QB: qb,
     RB: rb,
     WR: wr,
     TE: te,
-    DEF: def,
-    ROS: ros,
+    // DEF: def,
+    // ROS: ros,
   };
   const [sortedRanks, setSortedRanks] = useState<playerData[]>(qb);
 
@@ -61,7 +65,7 @@ const Home = () => {
     navigate(`/${position}`);
   };
 
-  const is3Columns = (): boolean => {
+  const is3HarrisColumns = (): boolean => {
     switch (getSelectedLocation()) {
       case "WR":
       case "RB":
@@ -96,7 +100,8 @@ const Home = () => {
       case "ROS":
         return "Pos";
       default:
-        return "Opp";
+        // return "Opp";  TODO swap back to Opp
+        return "Team";
     }
   };
 
@@ -158,90 +163,80 @@ const Home = () => {
 
   return (
     <Container>
-      <Heading>
-        Harris Footbal half PPR unofficial <br /> Week 17 ranks
-      </Heading>
-      <Updated>(Updated 12/31 - 10:49am PST)</Updated>
-      <PositionRow>
-        {positions.map((position) => (
-          <PositionButton
-            style={{ border: getUnderline(position) ? "1px solid" : "none" }}
-            onClick={() => positionPress(position)}
-          >
-            {position}
-          </PositionButton>
-        ))}
-      </PositionRow>
-      <TableWrapper>
-        <RowWrapper>
-          <RankRow style={{ marginBottom: "10px" }}>
-            <Rank style={{ fontWeight: 600, textDecoration: "underline" }}>
-              Rank
-            </Rank>
-            <Name
-              style={{
-                fontWeight: 600,
-                textDecoration: "underline",
-                textAlign: "center",
-              }}
+      <FilterContainer>
+        <SubHeading>2024 Ranks</SubHeading>
+        <PositionRow>
+          {positions.map((position) => (
+            <PositionButton
+              selected={getUnderline(position)}
+              onClick={() => positionPress(position)}
+              key={`position-${position}`}
             >
-              Name
-            </Name>
-            <Position
-              style={{
-                fontWeight: 600,
-                textDecoration: "underline",
-                width: "55px",
-              }}
-            >
-              {getFirstColumnDynamicHeading()}
-            </Position>
-            {!is3Columns() && (
-              <Position
-                style={{ fontWeight: 600, textDecoration: "underline" }}
+              {position}
+            </PositionButton>
+          ))}
+        </PositionRow>
+      </FilterContainer>
+      <TableContainer>
+        <TableWrapper style={{ borderSpacing: 0 }}>
+          <TableHeadingRowWrapper>
+            <ColumnHeadings style={{ marginBottom: "10px" }}>
+              <Position style={{ fontWeight: 600 }}>Rank</Position>
+              <Name
+                style={{
+                  fontWeight: 600,
+                }}
               >
-                {getSecondColumnDynamicHeading()}
-              </Position>
-            )}
-            {!is3Columns() && (
+                Name
+              </Name>
               <Position
-                style={{ fontWeight: 600, textDecoration: "underline" }}
+                style={{
+                  fontWeight: 600,
+                }}
               >
-                {getThirdColumnDynamicHeading()}
+                {getFirstColumnDynamicHeading()}
               </Position>
-            )}
-          </RankRow>
-        </RowWrapper>
-      </TableWrapper>
-      <TableWrapper>
-        {sortedRanks.map((player, i) => (
-          <RowWrapper>
-            <RankRow key={`player-rank-${i}`}>
-              <Rank>{i + 1}</Rank>
-              <Name>{player.name}</Name>
-              <Position style={{ width: "55px" }}>
-                {getFirstColumnDynamicData(player)}
-              </Position>
+              {!is3HarrisColumns() && (
+                <Position style={{ fontWeight: 600 }}>
+                  {getSecondColumnDynamicHeading()}
+                </Position>
+              )}
+              {!is3HarrisColumns() && (
+                <Position style={{ fontWeight: 600 }}>
+                  {getThirdColumnDynamicHeading()}
+                </Position>
+              )}
+            </ColumnHeadings>
+          </TableHeadingRowWrapper>
+        </TableWrapper>
+        <TableWrapper>
+          <tbody>
+            {sortedRanks.map((player, i) => (
+              <RankRow key={`player-rank-${i}`}>
+                <Rank>{i + 1}</Rank>
+                <Name>{player.name}</Name>
+                <Position>{getFirstColumnDynamicData(player)}</Position>
 
-              {!is3Columns() && (
-                <StandardRank>
-                  {getSecondColumnDynamicData(player)}
-                </StandardRank>
-              )}
-              {!is3Columns() && (
-                <PPRRank>{getThirdColumnDynamicData(player)}</PPRRank>
-              )}
-            </RankRow>
-          </RowWrapper>
-        ))}
-      </TableWrapper>
+                {!is3HarrisColumns() && (
+                  <Position>{getSecondColumnDynamicData(player)}</Position>
+                )}
+                {!is3HarrisColumns() && (
+                  <Position>{getThirdColumnDynamicData(player)}</Position>
+                )}
+              </RankRow>
+            ))}
+          </tbody>
+        </TableWrapper>
+        <UpdatedText> updated 5/10 - 10:22PM PST</UpdatedText>
+      </TableContainer>
+      <Heading>Harris Half PPR</Heading>
       <Disclaimer>
         These are <b>NOT</b> offical ranks from Christopher Harris. <br />{" "}
         {`These
         ranks are an average of the standard and full PPR ranks found on `}
-        <a href="https://www.harrisfootball.com/ranks" target="_blank">
+        <HarrisLink href="https://www.harrisfootball.com/ranks" target="_blank">
           harrisfootball.com
-        </a>
+        </HarrisLink>
         . <br /> This site is not affiliated with Christopher Harris.
       </Disclaimer>
     </Container>
