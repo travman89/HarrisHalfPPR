@@ -24,6 +24,7 @@ import {
   TableHeadingRowWrapper,
   FilterContainer,
   HarrisLink,
+  UpdatedText,
 } from "../components/index.js";
 
 interface playerData {
@@ -226,6 +227,7 @@ const Home = () => {
             ))}
           </tbody>
         </TableWrapper>
+        <UpdatedText> updated 5/10 - 10:22PM PST</UpdatedText>
       </TableContainer>
       <Heading>Harris Half PPR</Heading>
       <Disclaimer>

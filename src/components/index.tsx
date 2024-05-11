@@ -384,6 +384,13 @@ const HarrisLink = styled.a`
   color: ${(props) => props.theme.buttonColor};
 `;
 
+const UpdatedText = styled.p`
+  text-align: center;
+  width: 100%;
+  color: ${(props) => props.theme.primary};
+  margin: 10px auto 0;
+  font-size: 14px;
+`;
 export {
   Container,
   Heading,
@@ -411,4 +418,5 @@ export {
   Moon,
   ToggleIconWrapper,
   ColumnHeadings,
+  UpdatedText,
 };
