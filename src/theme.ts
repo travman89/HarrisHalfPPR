@@ -11,7 +11,7 @@ export const theme = {
   dark: {
     primary: "#F0F0F0",
     secondary: "#090F14",
-    buttonColor: "#70CCCC",
+    buttonColor: "#009FAF",
     background: "#122A37",
     containerColor: "#143B47",
     rowBackground: "#1A4C5C",

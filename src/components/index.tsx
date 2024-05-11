@@ -133,7 +133,6 @@ const Name = styled.td`
   flex: 1;
   text-align: left;
   overflow: hidden;
-  text-wrap: nowrap;
 `;
 
 const Position = styled.td`
@@ -285,6 +284,7 @@ const CheckInput = styled.input`
 `;
 
 const Slider = styled.span`
+  -webkit-tap-highlight-color: transparent;
   position: absolute;
   cursor: pointer;
   top: 0;

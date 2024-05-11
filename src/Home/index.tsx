@@ -37,14 +37,15 @@ interface playerData {
 const Home = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const positions = ["QB", "RB", "WR", "TE", "DEF", "ROS"];
+  // const positions = ["QB", "RB", "WR", "TE", "DEF", "ROS"];   positions for weekly ranks
+  const positions = ["QB", "RB", "WR", "TE"];
   const positionDataMap = {
     QB: qb,
     RB: rb,
     WR: wr,
     TE: te,
-    DEF: def,
-    ROS: ros,
+    // DEF: def,
+    // ROS: ros,
   };
   const [sortedRanks, setSortedRanks] = useState<playerData[]>(qb);
 
@@ -63,7 +64,7 @@ const Home = () => {
     navigate(`/${position}`);
   };
 
-  const is3Columns = (): boolean => {
+  const is3HarrisColumns = (): boolean => {
     switch (getSelectedLocation()) {
       case "WR":
       case "RB":
@@ -98,7 +99,8 @@ const Home = () => {
       case "ROS":
         return "Pos";
       default:
-        return "Opp";
+        // return "Opp";  TODO swap back to Opp
+        return "Team";
     }
   };
 
@@ -161,7 +163,7 @@ const Home = () => {
   return (
     <Container>
       <FilterContainer>
-        <SubHeading>Week 17 Ranks</SubHeading>
+        <SubHeading>2024 Ranks</SubHeading>
         <PositionRow>
           {positions.map((position) => (
             <PositionButton
@@ -193,12 +195,12 @@ const Home = () => {
               >
                 {getFirstColumnDynamicHeading()}
               </Position>
-              {!is3Columns() && (
+              {!is3HarrisColumns() && (
                 <Position style={{ fontWeight: 600 }}>
                   {getSecondColumnDynamicHeading()}
                 </Position>
               )}
-              {!is3Columns() && (
+              {!is3HarrisColumns() && (
                 <Position style={{ fontWeight: 600 }}>
                   {getThirdColumnDynamicHeading()}
                 </Position>
@@ -214,10 +216,10 @@ const Home = () => {
                 <Name>{player.name}</Name>
                 <Position>{getFirstColumnDynamicData(player)}</Position>
 
-                {!is3Columns() && (
+                {!is3HarrisColumns() && (
                   <Position>{getSecondColumnDynamicData(player)}</Position>
                 )}
-                {!is3Columns() && (
+                {!is3HarrisColumns() && (
                   <Position>{getThirdColumnDynamicData(player)}</Position>
                 )}
               </RankRow>
