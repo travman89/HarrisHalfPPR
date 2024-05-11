@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import wr from "../data/wr.json";
 import te from "../data/te.json";
 import qb from "../data/qb.json";
-import def from "../data/def.json";
+// import def from "../data/def.json";
 import rb from "../data/rb.json";
-import ros from "../data/ros.json";
+// import ros from "../data/ros.json";
 
 import { useLocation, useNavigate } from "react-router-dom";
 import {
