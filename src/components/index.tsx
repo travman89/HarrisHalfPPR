@@ -390,6 +390,9 @@ const UpdatedText = styled.p`
   color: ${(props) => props.theme.primary};
   margin: 10px auto 0;
   font-size: 14px;
+  @media (max-width: 440px) {
+    font-size: 10px;
+  }
 `;
 export {
   Container,
