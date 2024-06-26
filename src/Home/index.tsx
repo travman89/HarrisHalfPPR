@@ -227,7 +227,7 @@ const Home = () => {
             ))}
           </tbody>
         </TableWrapper>
-        <UpdatedText> updated 6/13 - 9:00AM PST</UpdatedText>
+        <UpdatedText> updated 6/25 - 6:30PM PST</UpdatedText>
       </TableContainer>
       <Heading>Harris Half PPR</Heading>
       <Disclaimer>

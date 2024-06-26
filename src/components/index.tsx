@@ -68,6 +68,7 @@ const Disclaimer = styled.div`
 `;
 
 const Updated = styled.div`
+  font-weight: 700;
   font-size: 14px;
   padding-bottom: 10px;
   text-align: center;
