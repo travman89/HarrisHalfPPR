@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import wr from "../data/wr.json";
 import te from "../data/te.json";
 import qb from "../data/qb.json";
-// import def from "../data/def.json";
+import def from "../data/def.json";
 import rb from "../data/rb.json";
 // import ros from "../data/ros.json";
 
@@ -39,13 +39,13 @@ const Home = () => {
   const location = useLocation();
   const navigate = useNavigate();
   // const positions = ["QB", "RB", "WR", "TE", "DEF", "ROS"];   positions for weekly ranks
-  const positions = ["QB", "RB", "WR", "TE"];
+  const positions = ["QB", "RB", "WR", "TE", "DEF"];
   const positionDataMap = {
     QB: qb,
     RB: rb,
     WR: wr,
     TE: te,
-    // DEF: def,
+    DEF: def,
     // ROS: ros,
   };
   const [sortedRanks, setSortedRanks] = useState<playerData[]>(qb);
@@ -99,6 +99,8 @@ const Home = () => {
     switch (selectedPosition) {
       case "ROS":
         return "Pos";
+      case "DEF": // eventually nuke this
+        return " ";
       default:
         // return "Opp";  TODO swap back to Opp
         return "Team";
@@ -227,7 +229,7 @@ const Home = () => {
             ))}
           </tbody>
         </TableWrapper>
-        <UpdatedText> updated 6/25 - 6:30PM PST</UpdatedText>
+        <UpdatedText> updated 7/10 - 6:55PM PST</UpdatedText>
       </TableContainer>
       <Heading>Harris Half PPR</Heading>
       <Disclaimer>

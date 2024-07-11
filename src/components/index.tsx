@@ -386,6 +386,7 @@ const HarrisLink = styled.a`
 `;
 
 const UpdatedText = styled.p`
+  font-weight: 700;
   text-align: center;
   width: 100%;
   color: ${(props) => props.theme.primary};
