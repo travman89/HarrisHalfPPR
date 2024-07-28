@@ -17,4 +17,4 @@ export const theme = {
     rowBackground: "#1A4C5C",
     toggleBackground: "rgba(240, 240, 240, 1)",
   },
-};
+}

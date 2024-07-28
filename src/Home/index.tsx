@@ -1,12 +1,12 @@
-import { useEffect, useState } from "react";
-import wr from "../data/wr.json";
-import te from "../data/te.json";
-import qb from "../data/qb.json";
-import def from "../data/def.json";
-import rb from "../data/rb.json";
-// import ros from "../data/ros.json";
+import { useEffect, useState } from "react"
+import wr from "../data/wr.json"
+import te from "../data/te.json"
+import qb from "../data/qb.json"
+import def from "../data/def.json"
+import rb from "../data/rb.json"
+import ros from "../data/ros.json"
 
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom"
 import {
   Container,
   Disclaimer,
@@ -25,143 +25,143 @@ import {
   FilterContainer,
   HarrisLink,
   UpdatedText,
-} from "../components/index.js";
+} from "../components/index.js"
 
 interface playerData {
-  name: string;
-  rank: number;
-  standardRank?: number;
-  pprRank?: number;
-  position?: string;
-  team?: string;
+  name: string
+  rank: number
+  standardRank?: number
+  pprRank?: number
+  position?: string
+  team?: string
 }
 const Home = () => {
-  const location = useLocation();
-  const navigate = useNavigate();
+  const location = useLocation()
+  const navigate = useNavigate()
   // const positions = ["QB", "RB", "WR", "TE", "DEF", "ROS"];   positions for weekly ranks
-  const positions = ["QB", "RB", "WR", "TE", "DEF"];
+  const positions = ["160", "QB", "RB", "WR", "TE", "DEF"]
   const positionDataMap = {
     QB: qb,
     RB: rb,
     WR: wr,
     TE: te,
     DEF: def,
-    // ROS: ros,
-  };
-  const [sortedRanks, setSortedRanks] = useState<playerData[]>(qb);
+    160: ros,
+  }
+  const [sortedRanks, setSortedRanks] = useState<playerData[]>(ros)
 
   const getSelectedLocation = () => {
-    return location.pathname.replace("/", "");
-  };
+    return location.pathname.replace("/", "")
+  }
 
   const positionFilter = () => {
-    const selectedPosition = getSelectedLocation();
+    const selectedPosition = getSelectedLocation()
     positions.includes(selectedPosition)
       ? setSortedRanks(positionDataMap[selectedPosition])
-      : setSortedRanks(qb);
-  };
+      : navigate(`/160`)
+  }
 
   const positionPress = (position: string) => {
-    navigate(`/${position}`);
-  };
+    navigate(`/${position}`)
+  }
 
   const is3HarrisColumns = (): boolean => {
     switch (getSelectedLocation()) {
       case "WR":
       case "RB":
-      case "ROS":
-        return false;
+      case "160":
+        return false
       default:
-        return true;
+        return true
     }
-  };
+  }
 
   const getUnderline = (position) => {
-    const selectedPosition = getSelectedLocation();
+    const selectedPosition = getSelectedLocation()
     //this changes back to all
-    if (position === "QB" && !positions.includes(selectedPosition)) {
-      return true;
+    if (position === "160" && !positions.includes(selectedPosition)) {
+      return true
     } else if (
       positions.includes(selectedPosition) &&
       position == selectedPosition
     ) {
-      return true;
+      return true
     }
-    return false;
-  };
+    return false
+  }
 
   useEffect(() => {
-    positionFilter();
-  }, [location]);
+    positionFilter()
+  }, [location])
 
   const getFirstColumnDynamicHeading = () => {
-    const selectedPosition = getSelectedLocation();
+    const selectedPosition = getSelectedLocation()
     switch (selectedPosition) {
-      case "ROS":
-        return "Pos";
+      case "160":
+        return "Pos"
       case "DEF": // eventually nuke this
-        return " ";
+        return " "
       default:
         // return "Opp";  TODO swap back to Opp
-        return "Team";
+        return "Team"
     }
-  };
+  }
 
   const getSecondColumnDynamicHeading = () => {
-    const selectedPosition = getSelectedLocation();
+    const selectedPosition = getSelectedLocation()
     switch (selectedPosition) {
       case "QB":
       case "DEF":
       case "TE":
-        return "";
+        return ""
       default:
-        return "Std";
+        return "Std"
     }
-  };
+  }
   const getThirdColumnDynamicHeading = () => {
-    const selectedPosition = getSelectedLocation();
+    const selectedPosition = getSelectedLocation()
     switch (selectedPosition) {
       case "QB":
       case "TE":
       case "DEF":
-        return "";
+        return ""
       default:
-        return "PPR";
+        return "PPR"
     }
-  };
+  }
 
   const getFirstColumnDynamicData = (player: playerData) => {
-    const selectedPosition = getSelectedLocation();
+    const selectedPosition = getSelectedLocation()
     switch (selectedPosition) {
-      case "ROS":
-        return player.position;
+      case "160":
+        return player.position
       default:
-        return player.team;
+        return player.team
     }
-  };
+  }
   const getSecondColumnDynamicData = (player: playerData) => {
-    const selectedPosition = getSelectedLocation();
+    const selectedPosition = getSelectedLocation()
     switch (selectedPosition) {
       case "QB":
       case "DEF":
       case "TE":
-        return "";
+        return ""
       default:
-        return player.standardRank;
+        return player.standardRank
     }
-  };
+  }
 
   const getThirdColumnDynamicData = (player: playerData) => {
-    const selectedPosition = getSelectedLocation();
+    const selectedPosition = getSelectedLocation()
     switch (selectedPosition) {
       case "QB":
       case "DEF":
       case "TE":
-        return "";
+        return ""
       default:
-        return player.pprRank;
+        return player.pprRank
     }
-  };
+  }
 
   return (
     <Container>
@@ -229,7 +229,7 @@ const Home = () => {
             ))}
           </tbody>
         </TableWrapper>
-        <UpdatedText> updated 7/10 - 6:55PM PST</UpdatedText>
+        <UpdatedText> updated 7/28 - 9:15PM PST</UpdatedText>
       </TableContainer>
       <Heading>Harris Half PPR</Heading>
       <Disclaimer>
@@ -242,7 +242,7 @@ const Home = () => {
         . <br /> This site is not affiliated with Christopher Harris.
       </Disclaimer>
     </Container>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home

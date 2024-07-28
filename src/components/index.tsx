@@ -1,11 +1,11 @@
-import { useState } from "react";
-import styled from "styled-components";
-import { ThemeType } from "../helpers";
-import SunComponent from "../assets/sun.svg?react";
-import MoonComponent from "../assets/moon.svg?react";
+import { useState } from "react"
+import styled from "styled-components"
+import { ThemeType } from "../helpers"
+import SunComponent from "../assets/sun.svg?react"
+import MoonComponent from "../assets/moon.svg?react"
 const TableWrapper = styled.table`
   width: 100%;
-`;
+`
 const Container = styled.div`
   min-height: 100vh;
   box-sizing: border-box;
@@ -26,7 +26,7 @@ const Container = styled.div`
   td {
     color: ${(props) => props.theme.primary};
   }
-`;
+`
 
 const Heading = styled.h1`
   font-family: "Atmospheric";
@@ -40,7 +40,7 @@ const Heading = styled.h1`
     font-size: 24px;
   }
   margin: 0;
-`;
+`
 
 const SubHeading = styled.h2`
   width: 100%;
@@ -57,7 +57,7 @@ const SubHeading = styled.h2`
   @media (max-width: 800px) {
     text-align: center;
   }
-`;
+`
 const Disclaimer = styled.div`
   text-align: center;
   font-size: 12px;
@@ -65,7 +65,7 @@ const Disclaimer = styled.div`
   @media (max-width: 440px) {
     font-size: 10px;
   }
-`;
+`
 
 const Updated = styled.div`
   font-weight: 700;
@@ -75,16 +75,16 @@ const Updated = styled.div`
   @media (max-width: 440px) {
     font-size: 10px;
   }
-`;
+`
 const TableHeadingRowWrapper = styled.tbody`
   width: 100%;
-`;
+`
 const RowWrapper = styled.tbody`
   width: 100%;
   &:nth-child(odd) {
     background-color: ${(props) => props.theme.rowBackground};
   }
-`;
+`
 
 const RankRow = styled.tr`
   display: flex;
@@ -117,36 +117,36 @@ const RankRow = styled.tr`
       padding: 0 5px;
     }
   }
-`;
+`
 
 const ColumnHeadings = styled(RankRow)`
   background-color: transparent !important;
   margin-bottom: 5px;
-`;
+`
 const Rank = styled.td`
   width: 10%;
   text-align: left;
   color: ${(props) => props.theme.buttonColor} !important;
   font-weight: 600;
-`;
+`
 const Name = styled.td`
   width: 45%;
   flex: 1;
   text-align: left;
   overflow: hidden;
-`;
+`
 
 const Position = styled.td`
   width: 10%;
   text-align: left;
-`;
+`
 const StandardRank = styled.td`
   width: 35px;
   text-align: left;
   @media (max-width: 440px) {
     width: 30px;
   }
-`;
+`
 
 const PPRRank = styled.td`
   width: 35px;
@@ -154,7 +154,7 @@ const PPRRank = styled.td`
   @media (max-width: 440px) {
     width: 30px;
   }
-`;
+`
 
 const PositionRow = styled.div`
   display: flex;
@@ -165,7 +165,7 @@ const PositionRow = styled.div`
     margin: 15px auto;
     padding: 0;
   }
-`;
+`
 
 const PositionButton = styled.button<{ selected: boolean }>`
   transition: all 0s !important;
@@ -184,7 +184,7 @@ const PositionButton = styled.button<{ selected: boolean }>`
   background: none;
   background-color: ${(props) =>
     props.selected ? props.theme.buttonColor : "none"};
-`;
+`
 
 const TableContainer = styled.div`
   box-sizing: border-box;
@@ -197,7 +197,7 @@ const TableContainer = styled.div`
     padding: 10px;
     border-radius: 0px;
   }
-`;
+`
 
 const FilterContainer = styled.div`
   display: flex;
@@ -208,7 +208,7 @@ const FilterContainer = styled.div`
     flex-direction: column;
     justify-content: center;
   }
-`;
+`
 
 const AppContainer = styled.div`
   background: ${(props) => props.theme.background};
@@ -223,7 +223,7 @@ const AppContainer = styled.div`
     transition: all 0.4s ease-in-out;
     outline: none;
   }
-`;
+`
 
 const NavContainer = styled.div`
   box-sizing: border-box;
@@ -236,7 +236,7 @@ const NavContainer = styled.div`
   @media (max-width: 800px) {
     height: 60px;
   }
-`;
+`
 
 const HHPPR = styled.span`
   font-family: "Atmospheric";
@@ -253,7 +253,7 @@ const HHPPR = styled.span`
     font-size: 24px;
     margin-left: 20px;
   }
-`;
+`
 
 const NavBar = ({ children }) => {
   return (
@@ -261,15 +261,15 @@ const NavBar = ({ children }) => {
       <HHPPR>HHPPR</HHPPR>
       {children}
     </NavContainer>
-  );
-};
+  )
+}
 
 const CheckLabel = styled.label`
   position: relative;
   display: inline-block;
   width: 44px;
   height: 20px;
-`;
+`
 
 const CheckInput = styled.input`
   opacity: 0;
@@ -282,7 +282,7 @@ const CheckInput = styled.input`
       transform: translateX(24px);
     }
   }
-`;
+`
 
 const Slider = styled.span`
   -webkit-tap-highlight-color: transparent;
@@ -312,7 +312,7 @@ const Slider = styled.span`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-`;
+`
 
 const Sun = styled(SunComponent)<{ $toggled: boolean }>`
   width: 16px;
@@ -322,7 +322,7 @@ const Sun = styled(SunComponent)<{ $toggled: boolean }>`
     fill: ${(props) =>
       props.$toggled ? props.theme.primary : props.theme.background};
   }
-`;
+`
 
 const Moon = styled(MoonComponent)<{ $toggled: boolean }>`
   width: 13px;
@@ -332,7 +332,7 @@ const Moon = styled(MoonComponent)<{ $toggled: boolean }>`
     fill: ${(props) =>
       !props.$toggled ? props.theme.primary : props.theme.background};
   }
-`;
+`
 
 const ToggleIconWrapper = styled.div`
   display: flex;
@@ -344,26 +344,26 @@ const ToggleIconWrapper = styled.div`
   @media (max-width: 440px) {
     margin-right: 10px;
   }
-`;
+`
 
 const ModeToggle = ({
   appTheme,
   updateTheme,
 }: {
-  appTheme: ThemeType;
-  updateTheme: (theme: ThemeType) => void;
+  appTheme: ThemeType
+  updateTheme: (theme: ThemeType) => void
 }) => {
   const [toggleState, setToggleState] = useState({
     theme: appTheme,
     checked: appTheme === "dark",
-  });
+  })
   const handleChange = () => {
-    const newThemeState = { ...toggleState };
-    newThemeState.checked = !newThemeState.checked;
-    newThemeState.theme = newThemeState.theme === "dark" ? "light" : "dark";
-    setToggleState({ ...newThemeState });
-    updateTheme(newThemeState.theme);
-  };
+    const newThemeState = { ...toggleState }
+    newThemeState.checked = !newThemeState.checked
+    newThemeState.theme = newThemeState.theme === "dark" ? "light" : "dark"
+    setToggleState({ ...newThemeState })
+    updateTheme(newThemeState.theme)
+  }
   return (
     <ToggleIconWrapper>
       <Sun $toggled={toggleState.checked} />
@@ -378,12 +378,12 @@ const ModeToggle = ({
       </CheckLabel>
       <Moon $toggled={toggleState.checked} />
     </ToggleIconWrapper>
-  );
-};
+  )
+}
 
 const HarrisLink = styled.a`
   color: ${(props) => props.theme.buttonColor};
-`;
+`
 
 const UpdatedText = styled.p`
   font-weight: 700;
@@ -395,7 +395,8 @@ const UpdatedText = styled.p`
   @media (max-width: 440px) {
     font-size: 10px;
   }
-`;
+`
+
 export {
   Container,
   Heading,
@@ -424,4 +425,4 @@ export {
   ToggleIconWrapper,
   ColumnHeadings,
   UpdatedText,
-};
+}
