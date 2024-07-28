@@ -147,7 +147,7 @@ const Home = () => {
       case "TE":
         return ""
       default:
-        return player.standardRank
+        return player.standardRank || "---"
     }
   }
 
@@ -159,7 +159,7 @@ const Home = () => {
       case "TE":
         return ""
       default:
-        return player.pprRank
+        return player.pprRank || "---"
     }
   }
 
