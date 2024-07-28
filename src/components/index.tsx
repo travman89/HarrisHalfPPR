@@ -102,7 +102,7 @@ const RankRow = styled.tr`
     padding: 0 10px;
   }
   @media (max-width: 380px) {
-    max-width: 330px;
+    max-width: 98%;
     td {
       font-size: 12px;
       margin: 0;
@@ -126,7 +126,7 @@ const ColumnHeadings = styled(RankRow)`
 const Rank = styled.td`
   width: 10%;
   text-align: left;
-  color: ${(props) => props.theme.buttonColor} !important;
+  color: ${(props) => props.theme.primary} !important;
   font-weight: 600;
 `
 const Name = styled.td`
@@ -134,6 +134,8 @@ const Name = styled.td`
   flex: 1;
   text-align: left;
   overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 `
 
 const Position = styled.td`
@@ -194,7 +196,7 @@ const TableContainer = styled.div`
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   padding: 20px;
   @media (max-width: 800px) {
-    padding: 10px;
+    padding: 10px 0;
     border-radius: 0px;
   }
 `

@@ -2,10 +2,9 @@ import { useEffect, useState } from "react"
 import wr from "../data/wr.json"
 import te from "../data/te.json"
 import qb from "../data/qb.json"
-import def from "../data/def.json"
+import dst from "../data/dst.json"
 import rb from "../data/rb.json"
 import ros from "../data/ros.json"
-
 import { useLocation, useNavigate } from "react-router-dom"
 import {
   Container,
@@ -34,18 +33,22 @@ interface playerData {
   pprRank?: number
   position?: string
   team?: string
+  industryRank: number
+  key: string
 }
+
+const showIndustyRanks = true
 const Home = () => {
   const location = useLocation()
   const navigate = useNavigate()
-  // const positions = ["QB", "RB", "WR", "TE", "DEF", "ROS"];   positions for weekly ranks
-  const positions = ["160", "QB", "RB", "WR", "TE", "DEF"]
+  // const positions = ["QB", "RB", "WR", "TE", "DST", "ROS"];   positions for weekly ranks
+  const positions = ["160", "QB", "RB", "WR", "TE", "DST"]
   const positionDataMap = {
     QB: qb,
     RB: rb,
     WR: wr,
     TE: te,
-    DEF: def,
+    DST: dst,
     160: ros,
   }
   const [sortedRanks, setSortedRanks] = useState<playerData[]>(ros)
@@ -99,7 +102,7 @@ const Home = () => {
     switch (selectedPosition) {
       case "160":
         return "Pos"
-      case "DEF": // eventually nuke this
+      case "DST": // eventually nuke this
         return " "
       default:
         // return "Opp";  TODO swap back to Opp
@@ -111,7 +114,7 @@ const Home = () => {
     const selectedPosition = getSelectedLocation()
     switch (selectedPosition) {
       case "QB":
-      case "DEF":
+      case "DST":
       case "TE":
         return ""
       default:
@@ -123,7 +126,7 @@ const Home = () => {
     switch (selectedPosition) {
       case "QB":
       case "TE":
-      case "DEF":
+      case "DST":
         return ""
       default:
         return "PPR"
@@ -143,7 +146,7 @@ const Home = () => {
     const selectedPosition = getSelectedLocation()
     switch (selectedPosition) {
       case "QB":
-      case "DEF":
+      case "DST":
       case "TE":
         return ""
       default:
@@ -155,7 +158,7 @@ const Home = () => {
     const selectedPosition = getSelectedLocation()
     switch (selectedPosition) {
       case "QB":
-      case "DEF":
+      case "DST":
       case "TE":
         return ""
       default:
@@ -208,6 +211,14 @@ const Home = () => {
                   {getThirdColumnDynamicHeading()}
                 </Position>
               )}
+              {showIndustyRanks && (
+                <Position
+                  title="Experimental consensus rankings for comparison against Harris ranks"
+                  style={{ fontWeight: 600 }}
+                >
+                  Cons
+                </Position>
+              )}
             </ColumnHeadings>
           </TableHeadingRowWrapper>
         </TableWrapper>
@@ -225,11 +236,14 @@ const Home = () => {
                 {!is3HarrisColumns() && (
                   <Position>{getThirdColumnDynamicData(player)}</Position>
                 )}
+                {showIndustyRanks && (
+                  <Position>{player.industryRank || "---"}</Position>
+                )}
               </RankRow>
             ))}
           </tbody>
         </TableWrapper>
-        <UpdatedText> updated 7/28 - 9:15PM PST</UpdatedText>
+        <UpdatedText> updated 7/28 - 3:40PM PST</UpdatedText>
       </TableContainer>
       <Heading>Harris Half PPR</Heading>
       <Disclaimer>
