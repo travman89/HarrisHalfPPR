@@ -214,7 +214,7 @@ const Home = () => {
               {showIndustyRanks && (
                 <Position
                   title="Experimental consensus rankings for comparison against Harris ranks"
-                  style={{ fontWeight: 600 }}
+                  style={{ fontWeight: 600, cursor: "help" }}
                 >
                   Cons
                 </Position>
