@@ -239,7 +239,11 @@ const Home = () => {
                   <Position>{getThirdColumnDynamicData(player)}</Position>
                 )}
                 {showIndustyRanks && (
-                  <Position>{player.industryRank || "---"}</Position>
+                  <Position>
+                    {player.industryRank && player.industryRank < 180
+                      ? player.industryRank
+                      : "---"}
+                  </Position>
                 )}
               </RankRow>
             ))}
