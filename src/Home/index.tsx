@@ -120,7 +120,7 @@ const Home = () => {
       case "TE":
         return ""
       default:
-        return "Std."
+        return "Std"
     }
   }
   const getThirdColumnDynamicHeading = () => {
@@ -218,7 +218,7 @@ const Home = () => {
                   title="Experimental consensus rankings for comparison against Harris ranks"
                   style={{ fontWeight: 600, cursor: "help" }}
                 >
-                  Cons.
+                  Cons
                 </Position>
               )}
             </ColumnHeadings>
@@ -247,7 +247,7 @@ const Home = () => {
         </TableWrapper>
         <Legend>
           <LegendKey>
-            <b>Std.</b> : Standard rank
+            <b>Std</b> : Standard rank
           </LegendKey>
           <LegendKey>
             {" "}
@@ -255,7 +255,7 @@ const Home = () => {
           </LegendKey>
           {showIndustyRanks && (
             <LegendKey>
-              <b>Cons.</b> : Consensus rank{" "}
+              <b>Cons</b> : Consensus rank{" "}
             </LegendKey>
           )}
         </Legend>
