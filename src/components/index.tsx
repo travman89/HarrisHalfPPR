@@ -392,7 +392,23 @@ const UpdatedText = styled.p`
   text-align: center;
   width: 100%;
   color: ${(props) => props.theme.primary};
-  margin: 20px auto 0;
+  margin: 10px auto 0;
+  font-size: 14px;
+  @media (max-width: 440px) {
+    font-size: 10px;
+  }
+`
+const Legend = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 20px auto 10px;
+`
+
+const LegendKey = styled.span`
+  margin: 10px;
+  color: ${(props) => props.theme.primary};
   font-size: 14px;
   @media (max-width: 440px) {
     font-size: 10px;
@@ -427,4 +443,6 @@ export {
   ToggleIconWrapper,
   ColumnHeadings,
   UpdatedText,
+  Legend,
+  LegendKey,
 }

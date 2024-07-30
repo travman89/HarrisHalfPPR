@@ -24,6 +24,8 @@ import {
   FilterContainer,
   HarrisLink,
   UpdatedText,
+  Legend,
+  LegendKey,
 } from "../components/index.js"
 
 interface playerData {
@@ -118,7 +120,7 @@ const Home = () => {
       case "TE":
         return ""
       default:
-        return "Std"
+        return "Std."
     }
   }
   const getThirdColumnDynamicHeading = () => {
@@ -216,7 +218,7 @@ const Home = () => {
                   title="Experimental consensus rankings for comparison against Harris ranks"
                   style={{ fontWeight: 600, cursor: "help" }}
                 >
-                  Cons
+                  Cons.
                 </Position>
               )}
             </ColumnHeadings>
@@ -243,7 +245,21 @@ const Home = () => {
             ))}
           </tbody>
         </TableWrapper>
-        <UpdatedText> updated 7/28 - 3:40PM PST</UpdatedText>
+        <Legend>
+          <LegendKey>
+            <b>Std.</b> : Standard rank
+          </LegendKey>
+          <LegendKey>
+            {" "}
+            <b>PPR</b> : PPR rank{" "}
+          </LegendKey>
+          {showIndustyRanks && (
+            <LegendKey>
+              <b>Cons.</b> : Consensus rank{" "}
+            </LegendKey>
+          )}
+        </Legend>
+        <UpdatedText> updated 7/29 - 6:00PM PST</UpdatedText>
       </TableContainer>
       <Heading>Harris Half PPR</Heading>
       <Disclaimer>
