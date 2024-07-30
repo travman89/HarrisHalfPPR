@@ -218,7 +218,7 @@ const Home = () => {
                   title="Experimental consensus rankings for comparison against Harris ranks"
                   style={{ fontWeight: 600, cursor: "help" }}
                 >
-                  Cons
+                  ECR
                 </Position>
               )}
             </ColumnHeadings>
@@ -255,7 +255,7 @@ const Home = () => {
           </LegendKey>
           {showIndustyRanks && (
             <LegendKey>
-              <b>Cons</b> : Consensus rank{" "}
+              <b>ECR</b> : expert consensus ranking{" "}
             </LegendKey>
           )}
         </Legend>
