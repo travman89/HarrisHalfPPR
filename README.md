@@ -1,27 +1,20 @@
-# React + TypeScript + Vite
+# HHPPR
+**Code currently running [hhppr.com](https://hhppr.com). **
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple React app that combines the standard and 0.5 PPR ranks found on [harrisfootball.com](https://harrisfootball.com). This is a morning project that is slowly growing over time. Large portions of this codebase are not refactored and may have remnants of experimentation or old code.  I'll clean it up some day 😉.
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
+### Run the app
+```
+yarn && yarn dev
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+### TODOS
+- [x] Experimental ECR 
+- [ ] Draft tool
+- [ ] In season ECR
+- [ ] Read data from external source and not from `/data`
+- [ ] Dynamic updated date
+- [ ] New Legend component
+
+
+_This project is not affiliated with Christopher harris._
