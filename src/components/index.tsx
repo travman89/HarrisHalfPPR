@@ -110,7 +110,7 @@ const RankRow = styled.tr`
     }
   }
   @media (max-width: 440px) and (min-width: 381px) {
-    max-width: 360px;
+    max-width: 98%;
     td {
       font-size: 12px;
       margin: 0;
