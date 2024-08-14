@@ -263,7 +263,7 @@ const Home = () => {
             </LegendKey>
           )}
         </Legend>
-        <UpdatedText> updated 8/12 - 5:00pm PST</UpdatedText>
+        <UpdatedText> updated 8/13 - 8:00pm PST</UpdatedText>
       </TableContainer>
       <Heading>Harris Half PPR</Heading>
       <Disclaimer>
