@@ -168,6 +168,17 @@ const Home = () => {
     }
   }
 
+  const [playersPicked, setPicked] = useState<string[]>([])
+
+  const rankRowClicked = (playerName) => {
+    var newPlayersPicked = [...playersPicked ]
+    if(playersPicked.indexOf(playerName) < 0)
+      newPlayersPicked.push(playerName)
+    else
+      newPlayersPicked = newPlayersPicked.filter(player => player !== playerName)
+    setPicked(newPlayersPicked)
+  }
+
   return (
     <Container>
       <FilterContainer>
@@ -227,7 +238,11 @@ const Home = () => {
         <TableWrapper>
           <tbody>
             {sortedRanks.map((player, i) => (
-              <RankRow key={`player-rank-${i}`}>
+              <RankRow key={`player-rank-${i}`}
+              style = {{textDecoration: playersPicked.indexOf(player.name) >= 0 ? "line-through" : "none"}}
+              onClick = {() => rankRowClicked(player.name)}
+              //style={{}}
+              >
                 <Rank>{i + 1}</Rank>
                 <Name>{player.name}</Name>
                 <Position>{getFirstColumnDynamicData(player)}</Position>
