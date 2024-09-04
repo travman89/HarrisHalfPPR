@@ -4,7 +4,7 @@ import te from "../data/te.json"
 import qb from "../data/qb.json"
 import dst from "../data/dst.json"
 import rb from "../data/rb.json"
-import ros from "../data/ros.json"
+// import ros from "../data/ros.json"
 import { useLocation, useNavigate } from "react-router-dom"
 import {
   Container,
@@ -39,21 +39,20 @@ interface playerData {
   key: string
 }
 
-const showIndustyRanks = true
+const showIndustyRanks = false
 const Home = () => {
   const location = useLocation()
   const navigate = useNavigate()
   // const positions = ["QB", "RB", "WR", "TE", "DST", "ROS"];   positions for weekly ranks
-  const positions = ["160", "QB", "RB", "WR", "TE", "DST"]
+  const positions = ["QB", "RB", "WR", "TE", "DST"]
   const positionDataMap = {
     QB: qb,
     RB: rb,
     WR: wr,
     TE: te,
     DST: dst,
-    160: ros,
   }
-  const [sortedRanks, setSortedRanks] = useState<playerData[]>(ros)
+  const [sortedRanks, setSortedRanks] = useState<playerData[]>(qb)
 
   const getSelectedLocation = () => {
     return location.pathname.replace("/", "")
@@ -63,7 +62,7 @@ const Home = () => {
     const selectedPosition = getSelectedLocation()
     positions.includes(selectedPosition)
       ? setSortedRanks(positionDataMap[selectedPosition])
-      : navigate(`/160`)
+      : navigate(`/QB`)
   }
 
   const positionPress = (position: string) => {
@@ -74,7 +73,6 @@ const Home = () => {
     switch (getSelectedLocation()) {
       case "WR":
       case "RB":
-      case "160":
         return false
       default:
         return true
@@ -84,7 +82,7 @@ const Home = () => {
   const getUnderline = (position) => {
     const selectedPosition = getSelectedLocation()
     //this changes back to all
-    if (position === "160" && !positions.includes(selectedPosition)) {
+    if (position === "QB" && !positions.includes(selectedPosition)) {
       return true
     } else if (
       positions.includes(selectedPosition) &&
@@ -102,13 +100,12 @@ const Home = () => {
   const getFirstColumnDynamicHeading = () => {
     const selectedPosition = getSelectedLocation()
     switch (selectedPosition) {
-      case "160":
-        return "Pos"
-      case "DST": // eventually nuke this
-        return " "
+      // case "160":
+      //   return "Pos"
       default:
+        // swap to "team for drafting"
         // return "Opp";  TODO swap back to Opp
-        return "Team"
+        return "Opp"
     }
   }
 
@@ -138,8 +135,8 @@ const Home = () => {
   const getFirstColumnDynamicData = (player: playerData) => {
     const selectedPosition = getSelectedLocation()
     switch (selectedPosition) {
-      case "160":
-        return player.position
+      // case "160":
+      //   return player.position
       default:
         return player.team
     }
@@ -171,7 +168,7 @@ const Home = () => {
   return (
     <Container>
       <FilterContainer>
-        <SubHeading>2024 Ranks</SubHeading>
+        <SubHeading>Week 1 Ranks</SubHeading>
         <PositionRow>
           {positions.map((position) => (
             <PositionButton
@@ -263,7 +260,7 @@ const Home = () => {
             </LegendKey>
           )}
         </Legend>
-        <UpdatedText> updated 9/1 - 6pm PST</UpdatedText>
+        <UpdatedText> updated 9/4 - 12:30pm PST</UpdatedText>
       </TableContainer>
       <Heading>Harris Half PPR</Heading>
       <Disclaimer>
