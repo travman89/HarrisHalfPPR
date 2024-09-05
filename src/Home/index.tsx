@@ -191,7 +191,7 @@ const Home = () => {
                   fontWeight: 600,
                 }}
               >
-                Name
+                asdf
               </Name>
               <Position
                 style={{
