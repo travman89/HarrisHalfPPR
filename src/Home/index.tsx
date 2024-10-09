@@ -168,7 +168,7 @@ const Home = () => {
   return (
     <Container>
       <FilterContainer>
-        <SubHeading>Week 5 ranks</SubHeading>
+        <SubHeading>Week 6 ranks</SubHeading>
         <PositionRow>
           {positions.map((position) => (
             <PositionButton
