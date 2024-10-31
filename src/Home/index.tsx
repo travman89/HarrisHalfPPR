@@ -256,11 +256,11 @@ const Home = () => {
           </LegendKey>
           {showIndustyRanks && (
             <LegendKey>
-              <b>ECR</b> : expert consensusw ranking{" "}
+              <b>ECR</b> : expert consensus ranking{" "}
             </LegendKey>
           )}
         </Legend>
-        <UpdatedText> updated 10/30 - 7:00am PST</UpdatedText>
+        <UpdatedText> updated 10/31 - 3:00pm PST</UpdatedText>
       </TableContainer>
       <Heading>Harris Half PPR</Heading>
       <Disclaimer>
