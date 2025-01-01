@@ -168,7 +168,7 @@ const Home = () => {
   return (
     <Container>
       <FilterContainer>
-        <SubHeading>Week 17 ranks</SubHeading>
+        <SubHeading>Week 18 ranks</SubHeading>
         <PositionRow>
           {positions.map((position) => (
             <PositionButton
@@ -260,7 +260,7 @@ const Home = () => {
             </LegendKey>
           )}
         </Legend>
-        <UpdatedText> updated 12/28 - 8:00am PST</UpdatedText>
+        <UpdatedText> updated 11/1 - 2:00pm PST</UpdatedText>
       </TableContainer>
       <Heading>Harris Half PPR</Heading>
       <Disclaimer>
