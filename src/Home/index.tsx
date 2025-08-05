@@ -2,9 +2,9 @@ import { useEffect, useState } from "react"
 import wr from "../data/wr.json"
 import te from "../data/te.json"
 import qb from "../data/qb.json"
-import dst from "../data/dst.json"
+// import dst from "../data/dst.json"
 import rb from "../data/rb.json"
-// import ros from "../data/ros.json"
+import ros from "../data/ros.json"
 import { useLocation, useNavigate } from "react-router-dom"
 import {
   Container,
@@ -44,13 +44,13 @@ const Home = () => {
   const location = useLocation()
   const navigate = useNavigate()
   // const positions = ["QB", "RB", "WR", "TE", "DST", "ROS"];   positions for weekly ranks
-  const positions = ["QB", "RB", "WR", "TE", "DST"]
+  const positions = ["160", "QB", "RB", "WR", "TE"]
   const positionDataMap = {
     QB: qb,
     RB: rb,
     WR: wr,
     TE: te,
-    DST: dst,
+    160: ros,
   }
   const [sortedRanks, setSortedRanks] = useState<playerData[]>(qb)
 
@@ -62,7 +62,7 @@ const Home = () => {
     const selectedPosition = getSelectedLocation()
     positions.includes(selectedPosition)
       ? setSortedRanks(positionDataMap[selectedPosition])
-      : navigate(`/QB`)
+      : navigate(`/160`)
   }
 
   const positionPress = (position: string) => {
@@ -73,6 +73,7 @@ const Home = () => {
     switch (getSelectedLocation()) {
       case "WR":
       case "RB":
+      case "160":
         return false
       default:
         return true
@@ -100,12 +101,12 @@ const Home = () => {
   const getFirstColumnDynamicHeading = () => {
     const selectedPosition = getSelectedLocation()
     switch (selectedPosition) {
-      // case "160":
-      //   return "Pos"
+      case "160":
+        return "Pos"
       default:
         // swap to "team for drafting"
         // return "Opp";  TODO swap back to Opp
-        return "Opp"
+        return "Team"
     }
   }
 
@@ -113,7 +114,6 @@ const Home = () => {
     const selectedPosition = getSelectedLocation()
     switch (selectedPosition) {
       case "QB":
-      case "DST":
       case "TE":
         return ""
       default:
@@ -125,7 +125,6 @@ const Home = () => {
     switch (selectedPosition) {
       case "QB":
       case "TE":
-      case "DST":
         return ""
       default:
         return "PPR"
@@ -135,8 +134,8 @@ const Home = () => {
   const getFirstColumnDynamicData = (player: playerData) => {
     const selectedPosition = getSelectedLocation()
     switch (selectedPosition) {
-      // case "160":
-      //   return player.position
+      case "160":
+        return player.position
       default:
         return player.team
     }
@@ -168,7 +167,7 @@ const Home = () => {
   return (
     <Container>
       <FilterContainer>
-        <SubHeading>Week 18 ranks</SubHeading>
+        <SubHeading>2025 Draft Ranks</SubHeading>
         <PositionRow>
           {positions.map((position) => (
             <PositionButton
@@ -260,7 +259,7 @@ const Home = () => {
             </LegendKey>
           )}
         </Legend>
-        <UpdatedText> updated 11/4 - 8:00am PST</UpdatedText>
+        <UpdatedText> update 8/4 - 6:30pm PST</UpdatedText>
       </TableContainer>
       <Heading>Harris Half PPR</Heading>
       <Disclaimer>
