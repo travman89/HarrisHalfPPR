@@ -166,16 +166,6 @@ const Home = () => {
 
   return (
     <Container>
-<<<<<<< HEAD
-      <FilterContainer style={{ flexDirection: "column" }}>
-        <SubHeading style={{ textAlign: "center" }}>
-          Thank you for another great season!
-        </SubHeading>
-        <SubHeading style={{ textAlign: "center" }}>
-          See you in August!
-        </SubHeading>
-      </FilterContainer>
-=======
       <FilterContainer>
         <SubHeading>2025 Draft Ranks</SubHeading>
         <PositionRow>
@@ -281,118 +271,8 @@ const Home = () => {
         </HarrisLink>
         . <br /> This site is not affiliated with Christopher Harris.
       </Disclaimer>
->>>>>>> 2025_season
     </Container>
   )
-  // return (
-  //   <Container>
-  //     <FilterContainer>
-  //       <SubHeading>Week 18 ranks</SubHeading>
-  //       <PositionRow>
-  //         {positions.map((position) => (
-  //           <PositionButton
-  //             selected={getUnderline(position)}
-  //             onClick={() => positionPress(position)}
-  //             key={`position-${position}`}
-  //           >
-  //             {position}
-  //           </PositionButton>
-  //         ))}
-  //       </PositionRow>
-  //     </FilterContainer>
-  //     <TableContainer>
-  //       <TableWrapper style={{ borderSpacing: 0 }}>
-  //         <TableHeadingRowWrapper>
-  //           <ColumnHeadings style={{ marginBottom: "10px" }}>
-  //             <Position style={{ fontWeight: 600 }}>Rank</Position>
-  //             <Name
-  //               style={{
-  //                 fontWeight: 600,
-  //               }}
-  //             >
-  //               Name
-  //             </Name>
-  //             <Position
-  //               style={{
-  //                 fontWeight: 600,
-  //               }}
-  //             >
-  //               {getFirstColumnDynamicHeading()}
-  //             </Position>
-  //             {!is3HarrisColumns() && (
-  //               <Position style={{ fontWeight: 600 }}>
-  //                 {getSecondColumnDynamicHeading()}
-  //               </Position>
-  //             )}
-  //             {!is3HarrisColumns() && (
-  //               <Position style={{ fontWeight: 600 }}>
-  //                 {getThirdColumnDynamicHeading()}
-  //               </Position>
-  //             )}
-  //             {showIndustyRanks && (
-  //               <Position
-  //                 title="Experimental consensus rankings for comparison against Harris ranks"
-  //                 style={{ fontWeight: 600, cursor: "help" }}
-  //               >
-  //                 ECR
-  //               </Position>
-  //             )}
-  //           </ColumnHeadings>
-  //         </TableHeadingRowWrapper>
-  //       </TableWrapper>
-  //       <TableWrapper>
-  //         <tbody>
-  //           {sortedRanks.map((player, i) => (
-  //             <RankRow key={`player-rank-${i}`}>
-  //               <Rank>{i + 1}</Rank>
-  //               <Name>{player.name}</Name>
-  //               <Position>{getFirstColumnDynamicData(player)}</Position>
-
-  //               {!is3HarrisColumns() && (
-  //                 <Position>{getSecondColumnDynamicData(player)}</Position>
-  //               )}
-  //               {!is3HarrisColumns() && (
-  //                 <Position>{getThirdColumnDynamicData(player)}</Position>
-  //               )}
-  //               {showIndustyRanks && (
-  //                 <Position>
-  //                   {player.industryRank && player.industryRank < 180
-  //                     ? player.industryRank
-  //                     : "---"}
-  //                 </Position>
-  //               )}
-  //             </RankRow>
-  //           ))}
-  //         </tbody>
-  //       </TableWrapper>
-  //       <Legend>
-  //         <LegendKey>
-  //           <b>Std</b> : Standard rank
-  //         </LegendKey>
-  //         <LegendKey>
-  //           {" "}
-  //           <b>PPR</b> : PPR rank{" "}
-  //         </LegendKey>
-  //         {showIndustyRanks && (
-  //           <LegendKey>
-  //             <b>ECR</b> : expert consensus ranking{" "}
-  //           </LegendKey>
-  //         )}
-  //       </Legend>
-  //       <UpdatedText> updated 11/4 - 8:00m PST</UpdatedText>
-  //     </TableContainer>
-  //     <Heading>Harris Half PPR</Heading>
-  //     <Disclaimer>
-  //       These are <b>NOT</b> offical ranks from Christopher Harris. <br />{" "}
-  //       {`These
-  //       ranks are an average of the standard and full PPR ranks found on `}
-  //       <HarrisLink href="https://www.harrisfootball.com/ranks" target="_blank">
-  //         harrisfootball.com
-  //       </HarrisLink>
-  //       . <br /> This site is not affiliated with Christopher Harris.
-  //     </Disclaimer>
-  //   </Container>
-  // )
 }
 
 export default Home
