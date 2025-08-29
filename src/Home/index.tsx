@@ -259,7 +259,7 @@ const Home = () => {
             </LegendKey>
           )}
         </Legend>
-        <UpdatedText> update 8/28 - 8:30am PST</UpdatedText>
+        <UpdatedText> update 8/29 - 7:45am PST</UpdatedText>
       </TableContainer>
       <Heading>Harris Half PPR</Heading>
       <Disclaimer>
@@ -269,7 +269,7 @@ const Home = () => {
         <HarrisLink href="https://www.harrisfootball.com/ranks" target="_blank">
           harrisfootball.com
         </HarrisLink>
-        . <br /> This site is not affiliated with Christopher Harris.
+        <br /> This site is not affiliated with Christopher Harris.
       </Disclaimer>
     </Container>
   )
