@@ -41,7 +41,19 @@ const Heading = styled.h1`
   }
   margin: 0;
 `
-
+const Link = styled.a`
+  font-weight: 600;
+  font-size: 16px;
+  text-align: left;
+  margin: 0;
+  color: ${(props) => props.theme.primary};
+  @media (max-width: 440px) {
+    font-size: 16px;
+  }
+  @media (max-width: 800px) {
+    text-align: center;
+  }
+`
 const SubHeading = styled.h2`
   width: 100%;
   max-width: 100%;
@@ -445,4 +457,5 @@ export {
   UpdatedText,
   Legend,
   LegendKey,
+  Link,
 }

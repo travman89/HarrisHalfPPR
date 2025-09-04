@@ -26,6 +26,7 @@ import {
   UpdatedText,
   Legend,
   LegendKey,
+  Link,
 } from "../components/index.js"
 
 interface playerData {
@@ -167,6 +168,12 @@ const Home = () => {
 
   return (
     <Container>
+      <Link
+        href="https://68b6ebdf7fa0f00008b5ed33--starlit-sundae-04f08e.netlify.app/160"
+        target="_blank"
+      >
+        Last Draft Ranks
+      </Link>
       <FilterContainer>
         <SubHeading>Week 1 Ranks</SubHeading>
         <PositionRow>
