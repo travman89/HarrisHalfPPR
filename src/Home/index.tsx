@@ -2,9 +2,9 @@ import { useEffect, useState } from "react"
 import wr from "../data/wr.json"
 import te from "../data/te.json"
 import qb from "../data/qb.json"
-// import dst from "../data/dst.json"
+import dst from "../data/dst.json"
 import rb from "../data/rb.json"
-import ros from "../data/ros.json"
+// import ros from "../data/ros.json"
 import { useLocation, useNavigate } from "react-router-dom"
 import {
   Container,
@@ -43,14 +43,15 @@ const showIndustyRanks = false
 const Home = () => {
   const location = useLocation()
   const navigate = useNavigate()
-  // const positions = ["QB", "RB", "WR", "TE", "DST", "ROS"];   positions for weekly ranks
-  const positions = ["160", "QB", "RB", "WR", "TE"]
+  const positions = ["QB", "RB", "WR", "TE", "DST"] //  positions for weekly ranks
+  // const positions = ["160", "QB", "RB", "WR", "TE"]
   const positionDataMap = {
     QB: qb,
     RB: rb,
     WR: wr,
     TE: te,
-    160: ros,
+    DST: dst,
+    // 160: ros,
   }
   const [sortedRanks, setSortedRanks] = useState<playerData[]>(qb)
 
@@ -62,7 +63,7 @@ const Home = () => {
     const selectedPosition = getSelectedLocation()
     positions.includes(selectedPosition)
       ? setSortedRanks(positionDataMap[selectedPosition])
-      : navigate(`/160`)
+      : navigate(`/QB`)
   }
 
   const positionPress = (position: string) => {
@@ -106,7 +107,7 @@ const Home = () => {
       default:
         // swap to "team for drafting"
         // return "Opp";  TODO swap back to Opp
-        return "Team"
+        return "Opp"
     }
   }
 
@@ -167,7 +168,7 @@ const Home = () => {
   return (
     <Container>
       <FilterContainer>
-        <SubHeading>2025 Draft Ranks</SubHeading>
+        <SubHeading>Week 1 Ranks</SubHeading>
         <PositionRow>
           {positions.map((position) => (
             <PositionButton
@@ -259,7 +260,7 @@ const Home = () => {
             </LegendKey>
           )}
         </Legend>
-        <UpdatedText> update 9/2 - 6:0am PST</UpdatedText>
+        <UpdatedText> updated 9/3 - 5:00pm PST</UpdatedText>
       </TableContainer>
       <Heading>Harris Half PPR</Heading>
       <Disclaimer>
