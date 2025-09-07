@@ -168,12 +168,12 @@ const Home = () => {
 
   return (
     <Container>
-      <Link
+      {/* <Link
         href="https://68b6ebdf7fa0f00008b5ed33--starlit-sundae-04f08e.netlify.app/160"
         target="_blank"
       >
         Last Draft Ranks
-      </Link>
+      </Link> */}
       <FilterContainer>
         <SubHeading>Week 1 Ranks</SubHeading>
         <PositionRow>
@@ -267,7 +267,7 @@ const Home = () => {
             </LegendKey>
           )}
         </Legend>
-        <UpdatedText> updated 9/4 - 5:00pm PST</UpdatedText>
+        <UpdatedText> updated 9/7 - 7:30am PST</UpdatedText>
       </TableContainer>
       <Heading>Harris Half PPR</Heading>
       <Disclaimer>
