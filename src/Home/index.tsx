@@ -26,7 +26,6 @@ import {
   UpdatedText,
   Legend,
   LegendKey,
-  Link,
 } from "../components/index.js"
 
 interface playerData {
