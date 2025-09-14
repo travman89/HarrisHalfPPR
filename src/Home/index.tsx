@@ -4,6 +4,7 @@ import te from "../data/te.json"
 import qb from "../data/qb.json"
 import dst from "../data/dst.json"
 import rb from "../data/rb.json"
+import dates from "../data/dates.json"
 // import ros from "../data/ros.json"
 import { useLocation, useNavigate } from "react-router-dom"
 import {
@@ -174,7 +175,7 @@ const Home = () => {
         Last Draft Ranks
       </Link> */}
       <FilterContainer>
-        <SubHeading>Week 2 Ranks</SubHeading>
+        <SubHeading>{`Week ${dates.week} Ranks`}</SubHeading>
         <PositionRow>
           {positions.map((position) => (
             <PositionButton
@@ -266,7 +267,7 @@ const Home = () => {
             </LegendKey>
           )}
         </Legend>
-        <UpdatedText> updated 9/11 - 5:00pm PST</UpdatedText>
+        <UpdatedText> {dates.updated}</UpdatedText>
       </TableContainer>
       <Heading>Harris Half PPR</Heading>
       <Disclaimer>
